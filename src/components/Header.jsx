@@ -33,7 +33,7 @@ const Header = () => {
           <a href="#home" onClick={(e) => scrollToSection(e, 'home')} className="text-xl lg:text-2xl font-bold tracking-wider uppercase text-emerald-500 transition-all hover:scale-105">PSG LEAP ACADEMY</a>
           <nav className="hidden xl:flex items-center space-x-8">
             {navItems.map((item, i) => (
-              <a key={i} href={`#${item.toLowerCase()}`} onClick={(e) => scrollToSection(e, item)} className="text-gray-800 hover:text-emerald-500 transition-all duration-300 text-sm font-medium relative group">
+              <a key={i} href={`#${item.toLowerCase()}`} onClick={(e) => scrollToSection(e, item)} className="text-gray-800 hover:text-emerald-500 transition-all duration-300 text-md font-medium relative group">
                 {item}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-emerald-500 transition-all duration-300 group-hover:w-full"></span>
               </a>
