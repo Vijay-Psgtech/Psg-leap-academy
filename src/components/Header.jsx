@@ -1,4 +1,5 @@
-import React,{ useState, useEffect } from 'react'
+import React,{ useState, useEffect } from 'react';
+import { GraduationCap } from 'lucide-react';
 
 const Header = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -30,7 +31,7 @@ const Header = () => {
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'bg-white shadow-lg py-3' : 'bg-white/95 backdrop-blur-sm py-4'}`}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
-          <a href="#home" onClick={(e) => scrollToSection(e, 'home')} className="text-xl lg:text-2xl font-bold tracking-wider uppercase text-[#0D5BA9] transition-all hover:scale-105">PSG LEAP ACADEMY</a>
+          <a href="#home" onClick={(e) => scrollToSection(e, 'home')} className="text-xl lg:text-2xl font-bold tracking-wider uppercase text-[#0D5BA9] transition-all hover:scale-105"><GraduationCap className="inline mr-2" size={34} />PSG LEAP ACADEMY</a>
           <nav className="hidden xl:flex items-center space-x-8">
             {navItems.map((item, i) => (
               <a key={i} href={`#${item.toLowerCase()}`} onClick={(e) => scrollToSection(e, item)} className="text-gray-800 hover:text-[#0D5BA9] transition-all duration-300 text-md font-medium relative group">
