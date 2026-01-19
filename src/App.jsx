@@ -5,6 +5,7 @@ import About from "./components/About";
 import Stats from "./components/Stats";
 import Target from "./components/Target";
 import Programs from "./components/Programs";
+import Facilities from "./components/Facilities";
 
 function App () {
   return (
@@ -15,6 +16,7 @@ function App () {
       <Stats />
       <Target />
       <Programs />
+      <Facilities />
     </div>
   )
 };

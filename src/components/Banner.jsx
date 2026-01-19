@@ -15,7 +15,7 @@ const Banner = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-gray-900/70 to-gray-900/50"></div>
       </div>
       <div className="container mx-auto px-4 relative z-10 text-center text-white">
-        <h2 className="text-4xl md:text-6xl font-bold mb-4 animate-fadeInUp">Learn. Excel. Achieve. Progress.</h2>
+        <h2 className="text-4xl md:text-6xl font-bold mb-4 animate-fadeInUp">Learn. Empower. Aspire. Progress.</h2>
         <p className="text-xl md:text-2xl mb-2 animate-fadeInUp animation-delay-200">Premier Coaching for NEET & JEE Aspirants</p>
         <p className="text-lg mb-8 animate-fadeInUp animation-delay-400">Under PSG Institutions / PSG Public Schools</p>
         <a href="#programs" onClick={(e) => { e.preventDefault(); document.getElementById('programs').scrollIntoView({ behavior: 'smooth' }); }} className="inline-block bg-transparent border-2 border-white px-8 py-3 rounded-full hover:bg-emerald-500 hover:border-emerald-500 transition-all duration-500 transform hover:scale-110 animate-fadeInUp animation-delay-600">Explore Programs</a>
