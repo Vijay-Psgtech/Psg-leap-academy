@@ -38,13 +38,21 @@ const Target = () => {
             return (
               <div
                 key={i}
-                className={`bg-white border-2 border-gray-200 p-8 rounded-xl text-center hover:border-[#0D5BA9] hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 group ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+                className={`group relative bg-white border border-gray-200 rounded-2xl p-8 text-center 
+                             shadow-md hover:shadow-2xl transition-all duration-500 
+                        hover:-translate-y-2 hover:border-[#0D5BA9] overflow-hidden
+                        ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
                 style={{ transitionDelay: `${i * 100}ms` }}
               >
+                {/* Decorative Gradient Glow */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[#0D5BA9]/5 via-transparent to-[#F9C400]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-2xl"></div>
                 <div
-                  className={`${t.bg} w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-500`}
+                  className={`relative z-10 ${t.bg} w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 
+                          shadow-inner shadow-gray-200 group-hover:scale-110 transition-transform duration-500`}
                 >
-                  <Icon className={`w-10 h-10 ${t.color}`} />
+                  <Icon
+                    className={`w-10 h-10 ${t.color} transition-transform duration-500 group-hover:rotate-6`}
+                  />
                 </div>
                 <h4 className="text-xl font-bold mb-3">{t.title}</h4>
                 <p className="text-gray-600">{t.desc}</p>
