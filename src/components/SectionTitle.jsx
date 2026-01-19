@@ -6,9 +6,9 @@ const SectionTitle = ({ subtitle, title }) => {
   return (
     <div
       ref={ref}
-      className={`text-center mb-12 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+      className={`text-start mb-12 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
     >
-      <div className="flex items-center justify-center mb-2">
+      <div className="flex items-center justify-start mb-2">
         <span className="text-sm uppercase tracking-widest text-gray-500">
           {subtitle}
         </span>

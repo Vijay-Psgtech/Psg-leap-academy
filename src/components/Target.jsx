@@ -12,7 +12,7 @@ const Target = () => {
         { icon: Heart, title: "Parents", desc: "Reliable coaching environment", color: "text-yellow-500", bg: "bg-yellow-50" }
     ];
   return (
-    <section id="target" className='py-16 bg-white'>
+    <section id="target" className='p-24 bg-white'>
         <div className="container mx-auto px-4">
         <SectionTitle subtitle="Target Audience" title="Who We Serve" />
         <div ref={ref} className="grid grid-cols-1 md:grid-cols-3 gap-8">
