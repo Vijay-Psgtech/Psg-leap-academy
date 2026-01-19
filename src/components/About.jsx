@@ -45,7 +45,7 @@ const About = () => {
                 "Holistic Development - stress management, time management, and career guidance",
               ].map((item, i) => (
                 <li key={i} className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-emerald-500 mr-3 mt-1" />
+                  <CheckCircle className="w-5 h-5 text-[#0D5BA9] mr-3 mt-1" />
                   <span>{item}</span>
                 </li>
               ))}

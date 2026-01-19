@@ -79,19 +79,19 @@ const Programs = () => {
                 />
 
                 {/* Category Tag */}
-                <div className="absolute top-4 left-4 bg-emerald-500 text-white text-xs sm:text-sm px-3 py-1 rounded-full shadow-md">
+                <div className="absolute top-4 left-4 bg-[#0D5BA9] text-white text-xs sm:text-sm px-3 py-1 rounded-full shadow-md">
                   {c.cat}
                 </div>
 
                 {/* Price Tag */}
-                <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm text-emerald-700 text-sm font-semibold px-3 py-1 rounded-full shadow">
+                <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm text-[#0D5BA9] text-sm font-semibold px-3 py-1 rounded-full shadow">
                   {c.price}
                 </div>
               </div>
 
               {/* Card Content */}
               <div className="p-6">
-                <h3 className="text-lg sm:text-xl font-bold mb-2 text-gray-800 group-hover:text-emerald-600 transition-colors">
+                <h3 className="text-lg sm:text-xl font-bold mb-2 text-gray-800 group-hover:text-[#0D5BA9] transition-colors">
                   {c.title}
                 </h3>
                 <p className="text-sm text-gray-600 mb-3">
@@ -102,7 +102,7 @@ const Programs = () => {
 
                 {/* Features */}
                 <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
-                  <span className="font-semibold text-emerald-600">
+                  <span className="font-semibold text-[#0D5BA9]">
                     Key Features:
                   </span>{" "}
                   {c.features}
@@ -110,7 +110,7 @@ const Programs = () => {
               </div>
 
               {/* Decorative Glow on Hover */}
-              <div className="absolute inset-0 bg-gradient-to-br from-emerald-100/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500 rounded-2xl"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-[#0D5BA9]/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500 rounded-2xl"></div>
             </div>
           ))}
         </div>

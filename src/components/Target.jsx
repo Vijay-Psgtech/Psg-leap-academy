@@ -38,7 +38,7 @@ const Target = () => {
             return (
               <div
                 key={i}
-                className={`bg-white border-2 border-gray-200 p-8 rounded-xl text-center hover:border-emerald-500 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 group ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+                className={`bg-white border-2 border-gray-200 p-8 rounded-xl text-center hover:border-[#0D5BA9] hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 group ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
                 style={{ transitionDelay: `${i * 100}ms` }}
               >
                 <div

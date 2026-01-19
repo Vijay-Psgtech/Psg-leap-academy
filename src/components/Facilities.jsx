@@ -22,11 +22,11 @@ const Facilities = () => {
           {fac.map((f, i) => {
             const Icon = f.icon;
             return (
-              <div key={i} className={`bg-white border-2 border-gray-200 p-6 rounded-xl text-center hover:border-emerald-500 hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 group ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: `${i * 100}ms` }}>
+              <div key={i} className={`bg-white border-2 border-gray-200 p-6 rounded-xl text-center hover:border-[#0D5BA9] hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 group ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: `${i * 100}ms` }}>
                 <div className={`${f.bg} w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500`}>
                   <Icon className={`w-8 h-8 ${f.color}`} />
                 </div>
-                <h3 className="font-bold text-gray-800 group-hover:text-emerald-500 transition-colors">{f.title}</h3>
+                <h3 className="font-bold text-gray-800 group-hover:text-[#0D5BA9] transition-colors">{f.title}</h3>
                 <p className="text-gray-600 mt-2">{f.desc}</p>
               </div>
             );
