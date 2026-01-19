@@ -19,11 +19,11 @@ const Stats = () => {
       const timer = setInterval(() => { start += increment; if (start >= target) { setCount(target); clearInterval(timer); } else setCount(Math.floor(start)); }, 16);
       return () => clearInterval(timer);
     }, [isVisible, target]);
-    return <span className="text-5xl font-bold text-emerald-500">{count}</span>;
+    return <span className="text-5xl font-bold text-[#0D5BA9]">{count}</span>;
   };
 
   return (
-     <section ref={ref} className="py-12 bg-gradient-to-br from-emerald-50 to-white">
+     <section ref={ref} className="py-12 bg-gradient-to-br from-[#0D5BA9]/30 to-white">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {stats.map((s, i) => (
