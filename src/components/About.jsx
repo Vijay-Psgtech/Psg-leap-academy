@@ -1,27 +1,9 @@
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
 import { CheckCircle } from "lucide-react";
-
- const useScrollAnimation = () => {
-    const [isVisible, setIsVisible] = useState(false);
-    const ref = useRef(null);
-    useEffect(() => {
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) setIsVisible(true);
-        },
-        { threshold: 0.1, rootMargin: "0px 0px -100px 0px" }
-      );
-      if (ref.current) observer.observe(ref.current);
-      return () => {
-        if (ref.current) observer.unobserve(ref.current);
-      };
-    }, []);
-    return [ref, isVisible];
-  };
+import useScrollAnimation from "../hooks/useScrollAnimation";
 
 const About = () => {
-    const [ref, isVisible] = useScrollAnimation();
-
+  const { isVisible, ref } = useScrollAnimation();
   return (
     <section id="about" className="py-16 bg-white">
       <div className="container mx-auto px-4">

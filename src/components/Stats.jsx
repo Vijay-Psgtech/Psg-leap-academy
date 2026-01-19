@@ -1,20 +1,14 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
+import useScrollAnimation from '../hooks/useScrollAnimation';
 
 const Stats = () => {
-    const [isVisible, setIsVisible] = useState(false);
-    const ref = useRef(null);
+    const { isVisible, ref } = useScrollAnimation();
     const stats = [
     { value: 250, label: "Target Students by Year 3" },
     { value: 4, label: "Expert Faculty" },
     { value: 4, label: "Programs" },
     { value: 100, label: "Top 100 State Ranks" }
   ];
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(([e]) => { if (e.isIntersecting) setIsVisible(true); }, { threshold: 0.3 });
-    if (ref.current) observer.observe(ref.current);
-    return () => { if (ref.current) observer.unobserve(ref.current); };
-  }, []);
 
    const Counter = ({ target }) => {
     const [count, setCount] = useState(0);
@@ -29,11 +23,11 @@ const Stats = () => {
   };
 
   return (
-     <section ref={ref} className="py-8 bg-gray-50">
+     <section ref={ref} className="py-12 bg-gradient-to-br from-emerald-50 to-white">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {stats.map((s, i) => (
-            <div key={i} className="text-center bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+            <div key={i} className={`text-center bg-white p-8 rounded-lg shadow-lg transform transition-all duration-700 delay-${i * 100} hover:scale-105 hover:shadow-2xl ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
               <Counter target={s.value} />
               <p className="mt-2 text-gray-600 font-semibold">{s.label}</p>
             </div>
