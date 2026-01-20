@@ -6,6 +6,8 @@ import Stats from "./components/Stats";
 import Target from "./components/Target";
 import Programs from "./components/Programs";
 import Facilities from "./components/Facilities";
+import Technology from "./components/Technology";
+import Faculty from "./components/Faculty";
 
 function App () {
   return (
@@ -17,6 +19,8 @@ function App () {
       <Target />
       <Programs />
       <Facilities />
+      <Faculty />
+      <Technology />
     </div>
   )
 };

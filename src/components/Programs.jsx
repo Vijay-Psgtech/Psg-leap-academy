@@ -48,7 +48,7 @@ const Programs = () => {
       id="programs"
       className="py-20 bg-gradient-to-b from-gray-50 via-white to-gray-50"
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+      <div className="max-w-full mx-auto px-6 md:px-12">
         {/* Section Title */}
         <SectionTitle
           subtitle="Program Offerings"
@@ -58,7 +58,7 @@ const Programs = () => {
         {/* Program Grid */}
         <div
           ref={ref}
-          className="mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2"
+          className="mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4"
         >
           {courses.map((c, i) => (
             <div
