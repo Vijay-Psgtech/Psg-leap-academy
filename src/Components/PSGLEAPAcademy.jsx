@@ -174,70 +174,65 @@ export default function PSGLeapAcademy() {
 
       {/* Header */}
       <motion.header
-        className="fixed top-0 w-full bg-white z-50"
+        className="fixed top-0 w-full z-60 bg-white/90"
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         style={{
-          boxShadow: "0 4px 20px rgba(0,0,0,0.05)",
-          backdropFilter: "blur(6px)",
+          boxShadow: "0 4px 20px rgba(0,0,0,0.06)",
+          backdropFilter: "blur(10px)",
         }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
-            {/* Logo */}
+          <div className="flex justify-between items-center gap-6 h-21 ">
+            {/* LOGO */}
             <motion.div
               className="flex items-center space-x-3 cursor-pointer"
-              whileHover={{ scale: 1.03 }}
-              transition={{ type: "spring", stiffness: 300 }}
               onClick={() => scrollToSection("home")}
+              whileHover={{ scale: 1.03 }}
             >
-              <motion.div
-                whileHover={{ rotate: -6 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                <GraduationCap
-                  className="h-9 w-9"
-                  style={{ color: "#5fcf80" }}
-                />
-              </motion.div>
+              <motion.img
+                src="src/assets/img/logo.png"
+                alt="PSG LEAP Logo"
+                className="h-14 w-7xl object-contain"
+                initial={{ opacity: 0, y: -6 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4 }}
+              />
 
-              <h1
-                className="text-2xl md:text-3xl font-bold tracking-wider"
-                style={{
-                  fontFamily: "'Raleway', sans-serif",
-                  color: "#5fcf80",
-                  textTransform: "uppercase",
-                }}
-              >
-                PSG LEAP
-              </h1>
+              {/* <h1
+          className="text-xl md:text-2xl font-extrabold tracking-wide"
+          style={{
+            fontFamily: "'Raleway', sans-serif",
+            color: "#5fcf80",
+            textTransform: "uppercase",
+          }}
+        >
+          PSG LEAP
+        </h1> */}
             </motion.div>
 
-            {/* Desktop Nav */}
-            <nav className="hidden lg:flex space-x-1 nav-font">
+            {/* DESKTOP NAV */}
+            <nav className="hidden lg:flex items-center space-x-8">
               {navItems.map((item, idx) => {
                 const isActive = activeSection === item.toLowerCase();
                 return (
                   <motion.button
                     key={item}
                     onClick={() => scrollToSection(item.toLowerCase())}
-                    className="relative px-4 py-4 text-base font-normal"
-                    initial={{ opacity: 0, y: -5 }}
+                    className="relative text-sm font-medium"
+                    initial={{ opacity: 0, y: -6 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: idx * 0.05 }}
-                    style={{
-                      color: isActive ? "#5fcf80" : "#272828",
-                    }}
+                    style={{ color: isActive ? "#5fcf80" : "#272828" }}
                     whileHover={{ color: "#5fcf80" }}
                   >
                     {item}
 
-                    {/* Animated underline */}
                     {isActive && (
                       <motion.span
                         layoutId="nav-underline"
-                        className="absolute left-4 right-4 -bottom-1 h-0.5"
+                        className="absolute left-0 -bottom-2 w-full h-0.5 rounded-full"
                         style={{ background: "#5fcf80" }}
                         transition={{
                           type: "spring",
@@ -254,27 +249,22 @@ export default function PSGLeapAcademy() {
             {/* CTA */}
             <motion.button
               onClick={() => scrollToSection("programs")}
-              className="hidden lg:block px-7 py-2.5 rounded-full text-sm font-semibold"
+              className="hidden lg:inline-flex justify-items-end px-6 py-2 rounded-4xl text-sm font-semibold"
               style={{ background: "#5fcf80", color: "#ffffff" }}
-              whileHover={{
-                scale: 1.05,
-                backgroundColor: "rgba(95,207,128,0.9)",
-              }}
+              whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              transition={{ type: "spring", stiffness: 300 }}
             >
               Enroll Now
             </motion.button>
 
-            {/* Mobile Menu Toggle */}
-            <motion.button
+            {/* MOBILE MENU */}
+            <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="lg:hidden"
               style={{ color: "#272828" }}
-              whileTap={{ scale: 0.9 }}
             >
-              {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
-            </motion.button>
+              {isMenuOpen ? <X size={26} /> : <Menu size={26} />}
+            </button>
           </div>
         </div>
       </motion.header>
@@ -337,7 +327,7 @@ export default function PSGLeapAcademy() {
               transition={{ delay: 0.5 }}
             >
               <span className="text-white drop-shadow-2xl">
-                Learn. Excel. Achieve.
+                Learn. Empower. Aspire.
               </span>
 
               <motion.span
@@ -432,8 +422,8 @@ export default function PSGLeapAcademy() {
                 <strong>NEET (Medical)</strong> and{" "}
                 <strong>JEE (Engineering)</strong>. The Academy integrates
                 rigorous academic training, personalized mentoring, and advanced
-                learning technologies to empower students to achieve their
-                career aspirations.
+                learning technologies to empower students to Aspire their career
+                aspirations.
               </p>
 
               <h4
@@ -1629,7 +1619,7 @@ export default function PSGLeapAcademy() {
               {
                 icon: Trophy,
                 title: "Top 100 Ranks",
-                desc: "Within the first three years, achieve Top 100 state-level ranks in NEET & JEE examinations.",
+                desc: "Within the first three years, Aspire Top 100 state-level ranks in NEET & JEE examinations.",
                 accent: "#ffeb3b",
                 bg: "rgba(255, 235, 59, 0.15)",
               },
@@ -1722,7 +1712,7 @@ export default function PSGLeapAcademy() {
             >
               PSG LEAP Academy will be more than a coaching centre — it will be
               a launch pad for future doctors and engineers, grounded in PSG’s
-              tradition of excellence, discipline, and innovation.
+              tradition of Empowerlence, discipline, and innovation.
             </p>
 
             {/* Quote */}
@@ -1740,7 +1730,7 @@ export default function PSGLeapAcademy() {
                   fontFamily: "'Raleway', sans-serif",
                 }}
               >
-                “PSG LEAP Academy – Learn. Excel. Achieve. Progress.”
+                “PSG LEAP Academy – Learn. Empower. Aspire. Progress.”
               </h3>
             </motion.div>
 
@@ -1948,7 +1938,7 @@ export default function PSGLeapAcademy() {
               transition={{ delay: 0.6 }}
               viewport={{ once: true }}
             >
-              Learn. Excel. Achieve. Progress.
+              Learn. Empower. Aspire. Progress.
             </motion.p>
           </motion.div>
         </div>
