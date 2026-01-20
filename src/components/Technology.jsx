@@ -32,7 +32,7 @@ const Technology = () => {
   return (
     <section
       id="technology"
-      className="py-20 bg-gradient-to-b from-gray-50 via-white to-gray-50"
+      className="py-20 bg-white"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <SectionTitle subtitle="Technology" title="Advanced Learning Tech" />
