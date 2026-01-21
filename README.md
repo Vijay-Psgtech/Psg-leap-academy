@@ -1,16 +1,61 @@
-# React + Vite
+# 🌟 PSG LEAP Academy
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Official website for **PSG LEAP Academy**, built using **React + Vite + TailwindCSS**.  
+A single-page, responsive, and modern website designed to showcase academic programs and initiatives.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🎯 Features
+- Responsive and mobile-friendly UI  
+- Smooth scroll and animations  
+- Modular React components  
+- Optimized build with Vite  
+- Reusable hooks and section-based layout  
+- SEO-friendly and lightweight  
+- Easily customizable design system  
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🎨 Design System
 
-## Expanding the ESLint configuration
+**Color Palette**
+- Primary: `#004AAD`  
+- Secondary: `#00B4D8`  
+- Accent: `#FACC15`  
+- Background: `#F9FAFB`  
+- Text: `#1E293B` / `#475569`
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+**Typography**
+- Font: `Poppins` or `Inter`
+- Headings: Bold and clean
+- Body: Readable and balanced
+
+**Components**
+- Navbar  
+- Hero Section  
+- About Section  
+- Programs Section  
+- Financial Overview  
+- Testimonials  
+- Footer  
+
+**Layout**
+- Max width: `max-w-7xl mx-auto px-6`
+- Section spacing: `py-16`
+- Rounded corners and consistent shadows
+
+---
+
+## 🛠️ Tech Stack
+
+| Category | Technology |
+|-----------|-------------|
+| Frontend | React 19 |
+| Build Tool | Vite |
+| Styling | TailwindCSS |
+| Icons | Lucide Icons |
+| Animation | Framer Motion |
+| Hosting | Netlify / Vercel |
+| Version Control | Git + GitHub |
+
+---
