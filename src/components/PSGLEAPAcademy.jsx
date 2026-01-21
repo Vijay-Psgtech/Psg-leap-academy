@@ -121,6 +121,7 @@ export default function PSGLeapAcademy() {
           font-family: 'Raleway', sans-serif;
           color: #37423b;
           font-weight: 700;
+          letter-spacing: -0.5px;
         }
         
         .nav-font {
@@ -130,28 +131,81 @@ export default function PSGLeapAcademy() {
         .section-title-line::after {
           content: "";
           width: 120px;
-          height: 1px;
+          height: 2px;
           display: inline-block;
-          background: #5fcf80;
+          background: linear-gradient(90deg, #5fcf80, rgba(95, 207, 128, 0.3));
           margin: 4px 10px;
+          border-radius: 10px;
         }
         
         .btn-accent {
-          background: #5fcf80;
+          background: linear-gradient(135deg, #5fcf80, #34d399);
           color: #ffffff;
-          transition: 0.3s;
+          transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+          position: relative;
+          overflow: hidden;
+          box-shadow: 0 10px 30px rgba(95, 207, 128, 0.2);
+        }
+        
+        .btn-accent::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+          transition: left 0.5s;
         }
         
         .btn-accent:hover {
-          background: rgba(95, 207, 128, 0.85);
+          background: linear-gradient(135deg, #34d399, #5fcf80);
+          box-shadow: 0 20px 40px rgba(95, 207, 128, 0.35);
+          transform: translateY(-2px);
+        }
+        
+        .btn-accent:hover::before {
+          left: 100%;
         }
         
         .card-hover {
-          transition: all 0.3s ease-in-out;
+          transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+          position: relative;
+        }
+        
+        .card-hover::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(135deg, rgba(95, 207, 128, 0.1), transparent);
+          border-radius: inherit;
+          opacity: 0;
+          transition: opacity 0.4s ease;
         }
         
         .card-hover:hover {
-          box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12), 0 0 40px rgba(95, 207, 128, 0.1);
+          transform: translateY(-6px);
+        }
+        
+        .card-hover:hover::before {
+          opacity: 1;
+        }
+        
+        .glassmorphism {
+          background: rgba(255, 255, 255, 0.7);
+          backdrop-filter: blur(10px);
+          -webkit-backdrop-filter: blur(10px);
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+        }
+        
+        .glassmorphism-dark {
+          background: rgba(0, 0, 0, 0.5);
+          backdrop-filter: blur(15px);
+          -webkit-backdrop-filter: blur(15px);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
         }
         
         .fade-in {
@@ -162,18 +216,29 @@ export default function PSGLeapAcademy() {
           from { opacity: 0; transform: translateY(20px); }
           to { opacity: 1; transform: translateY(0); }
         }
+        
+        @keyframes slideInDown {
+          from { opacity: 0; transform: translateY(-20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes slideInUp {
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes shimmer {
+          0% { background-position: -1000px 0; }
+          100% { background-position: 1000px 0; }
+        }
       `}</style>
 
       {/* Header */}
       <motion.header
-        className="fixed top-0 w-full z-60 bg-white/90"
+        className="fixed top-0 w-full z-60 glassmorphism"
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        style={{
-          boxShadow: "0 4px 20px rgba(0,0,0,0.06)",
-          backdropFilter: "blur(10px)",
-        }}
+        transition={{ duration: 0.6, type: "spring", stiffness: 100, damping: 15 }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center gap-6 h-21 ">
@@ -191,17 +256,6 @@ export default function PSGLeapAcademy() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4 }}
               />
-
-              {/* <h1
-          className="text-xl md:text-2xl font-extrabold tracking-wide"
-          style={{
-            fontFamily: "'Raleway', sans-serif",
-            color: "#5fcf80",
-            textTransform: "uppercase",
-          }}
-        >
-          PSG LEAP
-        </h1> */}
             </motion.div>
 
             {/* DESKTOP NAV */}
@@ -241,7 +295,7 @@ export default function PSGLeapAcademy() {
             {/* CTA */}
             <motion.button
               onClick={() => scrollToSection("programs")}
-              className="hidden lg:inline-flex justify-items-end px-6 py-2 rounded-4xl text-sm font-semibold"
+              className="hidden lg:inline-flex justify-items-end px-6 py-2 rounded-full text-sm font-semibold"
               style={{ background: "#5fcf80", color: "#ffffff" }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -263,20 +317,26 @@ export default function PSGLeapAcademy() {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="fixed inset-0 bg-white z-40 lg:hidden pt-20">
+        <motion.div 
+          className="fixed inset-0 glassmorphism-dark z-40 lg:hidden pt-20"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
+        >
           <nav className="flex flex-col items-center space-y-4 py-8 nav-font">
             {navItems.map((item) => (
               <button
                 key={item}
                 onClick={() => scrollToSection(item.toLowerCase())}
                 className="text-lg font-medium px-6 py-3"
-                style={{ color: "#272828" }}
+                style={{ color: "#d6e6e6" }}
               >
                 {item}
               </button>
             ))}
           </nav>
-        </div>
+        </motion.div>
       )}
 
       {/* Hero Section */}
@@ -299,16 +359,16 @@ export default function PSGLeapAcademy() {
 
         {/* Content */}
         <motion.div
-          className="relative z-10 max-w-4xl mx-auto px-6 py-32 text-center text-white"
+          className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 py-20 sm:py-32 text-center text-white"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
         >
           <motion.div
-            className="rounded-3xl p-8 md:p-12  "
+            className="rounded-3xl p-6 sm:p-8 md:p-12"
             initial={{ y: 40, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
+            transition={{ delay: 0.3, duration: 0.8, type: "spring", stiffness: 60 }}
           >
             {/* Heading */}
             <motion.h2
@@ -353,18 +413,25 @@ export default function PSGLeapAcademy() {
             {/* CTA */}
             <motion.button
               onClick={() => scrollToSection("programs")}
-              className="px-10 py-4 rounded-full font-semibold text-lg
-                   bg-white text-emerald-600 shadow-xl"
+              className="px-10 py-4 rounded-full font-semibold text-lg bg-white text-emerald-600 relative overflow-hidden group"
               whileHover={{
                 scale: 1.08,
-                backgroundColor: "#10b981",
-                color: "#ffffff",
-                boxShadow: "0 20px 40px rgba(16,185,129,0.45)",
+                boxShadow: "0 20px 50px rgba(16,185,129,0.4)",
               }}
               whileTap={{ scale: 0.95 }}
-              transition={{ type: "spring", stiffness: 300 }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
-              Explore Programs
+              <motion.span
+                className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-emerald-600 -z-10"
+                initial={{ x: "-100%" }}
+                whileHover={{ x: 0 }}
+                transition={{ duration: 0.3 }}
+              />
+              <motion.span
+                className="group-hover:text-white transition-colors duration-300"
+              >
+                Explore Programs
+              </motion.span>
             </motion.button>
           </motion.div>
         </motion.div>
@@ -375,19 +442,29 @@ export default function PSGLeapAcademy() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-14 items-center">
             {/* IMAGE BLOCK */}
-            <div
-              className="relative rounded-2xl flex items-center justify-center h-96 overflow-hidden shadow-xl"
+            <motion.div
+              className="relative rounded-2xl flex items-center justify-center h-80 sm:h-96 overflow-hidden"
               style={{
                 background: "linear-gradient(135deg, #e8f5e9, #f9f9f9)",
+                boxShadow: "0 20px 50px rgba(95, 207, 128, 0.15), inset 0 1px 1px rgba(255,255,255,0.8)",
               }}
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.4 }}
             >
-              <img
+              <motion.img
                 src="src/assets/img/about.jpg"
                 alt="About PSG LEAP Academy"
-                className="w-full h-full object-cover rounded-2xl hover:scale-105 transition-transform duration-700"
+                className="w-full h-full object-cover rounded-2xl"
+                initial={{ scale: 1.05 }}
+                whileHover={{ scale: 1.15 }}
+                transition={{ duration: 0.6 }}
               />
-              <div className="absolute inset-0 bg-black/10 rounded-2xl"></div>
-            </div>
+              <motion.div 
+                className="absolute inset-0 bg-black/5 rounded-2xl"
+                initial={{ opacity: 0 }}
+                whileHover={{ opacity: 1 }}
+              />
+            </motion.div>
 
             {/* CONTENT BLOCK */}
             <div>
@@ -493,7 +570,11 @@ export default function PSGLeapAcademy() {
             ].map((stat, idx) => (
               <motion.div
                 key={idx}
-                className="text-center p-8 bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300"
+                className="text-center p-8 bg-white rounded-2xl card-hover"
+                style={{
+                  background: "linear-gradient(135deg, #ffffff, #f8fbf9)",
+                  border: "1px solid rgba(95, 207, 128, 0.2)",
+                }}
                 variants={{
                   hidden: { opacity: 0, y: 40 },
                   visible: { opacity: 1, y: 0 },
@@ -560,10 +641,15 @@ export default function PSGLeapAcademy() {
                 desc: "Seeking reliable and disciplined coaching environment",
               },
             ].map((item, idx) => (
-              <div
+              <motion.div
                 key={idx}
-                className="bg-white rounded-lg p-8 text-center card-hover"
-                style={{ border: "1px solid rgba(68, 68, 68, 0.1)" }}
+                className="rounded-2xl p-8 text-center card-hover"
+                style={{
+                  background: "linear-gradient(135deg, rgba(255,255,255,0.9), rgba(248,251,249,0.8))",
+                  border: "1px solid rgba(95, 207, 128, 0.3)",
+                  backdropFilter: "blur(10px)",
+                }}
+                whileHover={{ y: -8 }}
               >
                 <item.icon
                   className="h-12 w-12 mx-auto mb-6"
@@ -579,7 +665,7 @@ export default function PSGLeapAcademy() {
                   {item.title}
                 </h4>
                 <p style={{ color: "rgba(68, 68, 68, 0.7)" }}>{item.desc}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -614,14 +700,27 @@ export default function PSGLeapAcademy() {
           {/* Content Grid */}
           <div className="grid lg:grid-cols-2 gap-14 items-start">
             {/* Left Image */}
-            <div className="relative rounded-3xl overflow-hidden shadow-xl">
-              <img
+            <motion.div 
+              className="relative rounded-3xl overflow-hidden"
+              style={{
+                boxShadow: "0 20px 50px rgba(95, 207, 128, 0.2), 0 0 40px rgba(95, 207, 128, 0.1)",
+              }}
+              whileHover={{ scale: 1.02 }}
+            >
+              <motion.img
                 src="src/assets/img/course-1.jpg"
                 alt="Programs"
-                className="w-full h-full object-cover scale-105 hover:scale-110 transition-transform duration-700"
+                className="w-full h-full object-cover"
+                initial={{ scale: 1.05 }}
+                whileHover={{ scale: 1.15 }}
+                transition={{ duration: 0.6 }}
               />
-              <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent"></div>
-            </div>
+              <motion.div 
+                className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"
+                initial={{ opacity: 0.3 }}
+                whileHover={{ opacity: 0.5 }}
+              />
+            </motion.div>
 
             {/* Programs Cards */}
             <div className="grid sm:grid-cols-2 gap-8">
@@ -661,10 +760,21 @@ export default function PSGLeapAcademy() {
                   features: "AI-based analytics & personal mentoring",
                 },
               ].map((course, idx) => (
-                <div
+                <motion.div
                   key={idx}
-                  className="bg-white rounded-2xl p-6 shadow-md hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-black/5"
+                  className="rounded-2xl p-6 card-hover relative overflow-hidden group"
+                  style={{
+                    background: "linear-gradient(135deg, #ffffff, #f8fbf9)",
+                    border: "1px solid rgba(95, 207, 128, 0.2)",
+                  }}
+                  whileHover={{ y: -8 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 >
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-br from-emerald-50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                    initial={{ opacity: 0 }}
+                  />
+                  <div className="relative z-10">
                   {/* Badge & Price */}
                   <div className="flex justify-between items-center mb-4">
                     <span
@@ -703,7 +813,8 @@ export default function PSGLeapAcademy() {
                   <p className="text-sm text-black/70 leading-relaxed">
                     <strong>Key Features:</strong> {course.features}
                   </p>
-                </div>
+                  </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -787,22 +898,36 @@ export default function PSGLeapAcademy() {
             ].map((facility, idx) => (
               <motion.div
                 key={idx}
-                className="text-center p-8 rounded-2xl bg-[#f9f9f9] shadow-md hover:shadow-xl transition-all duration-300"
+                className="text-center p-8 rounded-2xl card-hover"
+                style={{
+                  background: "linear-gradient(135deg, #f9f9f9, #f5f5f5)",
+                  border: "1px solid rgba(95, 207, 128, 0.15)",
+                }}
                 variants={{
                   hidden: { opacity: 0, y: 40 },
                   visible: { opacity: 1, y: 0 },
                 }}
                 whileHover={{ y: -8, scale: 1.02 }}
               >
-                <div
+                <motion.div
                   className="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full"
-                  style={{ background: `${facility.color}20` }}
+                  style={{ 
+                    background: `linear-gradient(135deg, ${facility.color}30, ${facility.color}10)`,
+                    boxShadow: `0 10px 30px ${facility.color}20`,
+                  }}
+                  whileHover={{ scale: 1.15, rotate: 10 }}
+                  transition={{ type: "spring", stiffness: 400 }}
                 >
-                  <facility.icon
-                    className="w-8 h-8"
-                    style={{ color: facility.color }}
-                  />
-                </div>
+                  <motion.div
+                    whileHover={{ rotate: 360 }}
+                    transition={{ duration: 0.6 }}
+                  >
+                    <facility.icon
+                      className="w-8 h-8"
+                      style={{ color: facility.color }}
+                    />
+                  </motion.div>
+                </motion.div>
 
                 <h3
                   className="font-bold text-lg mb-2"
@@ -882,7 +1007,11 @@ export default function PSGLeapAcademy() {
             ].map((tech, idx) => (
               <motion.div
                 key={idx}
-                className="bg-white rounded-2xl p-10 text-center shadow-md hover:shadow-2xl transition-all duration-300"
+                className="rounded-2xl p-10 text-center card-hover"
+                style={{
+                  background: "linear-gradient(135deg, #ffffff, #f8fbf9)",
+                  border: "1px solid rgba(95, 207, 128, 0.2)",
+                }}
                 variants={{
                   hidden: { opacity: 0, y: 40 },
                   visible: { opacity: 1, y: 0 },
@@ -890,15 +1019,25 @@ export default function PSGLeapAcademy() {
                 whileHover={{ y: -8, scale: 1.03 }}
               >
                 {/* Icon */}
-                <div
+                <motion.div
                   className="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full"
-                  style={{ background: `${tech.color}20` }}
+                  style={{ 
+                    background: `linear-gradient(135deg, ${tech.color}30, ${tech.color}10)`,
+                    boxShadow: `0 10px 30px ${tech.color}20`,
+                  }}
+                  whileHover={{ scale: 1.2, rotate: -10 }}
+                  transition={{ type: "spring", stiffness: 400 }}
                 >
-                  <tech.icon
-                    className="w-8 h-8"
-                    style={{ color: tech.color }}
-                  />
-                </div>
+                  <motion.div
+                    whileHover={{ rotate: -360 }}
+                    transition={{ duration: 0.6 }}
+                  >
+                    <tech.icon
+                      className="w-8 h-8"
+                      style={{ color: tech.color }}
+                    />
+                  </motion.div>
+                </motion.div>
 
                 {/* Title */}
                 <h4
@@ -989,7 +1128,11 @@ export default function PSGLeapAcademy() {
             ].map((subject, idx) => (
               <motion.div
                 key={idx}
-                className="bg-[#f9f9f9] rounded-2xl p-8 text-center shadow-md hover:shadow-xl transition-all duration-300"
+                className="rounded-2xl p-8 text-center card-hover"
+                style={{
+                  background: "linear-gradient(135deg, #f9f9f9, #f5f5f5)",
+                  border: "1px solid rgba(95, 207, 128, 0.15)",
+                }}
                 variants={{
                   hidden: { opacity: 0, y: 40 },
                   visible: { opacity: 1, y: 0 },
@@ -997,15 +1140,25 @@ export default function PSGLeapAcademy() {
                 whileHover={{ y: -8, scale: 1.03 }}
               >
                 {/* Icon Ring */}
-                <div
+                <motion.div
                   className="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full"
-                  style={{ background: `${subject.color}20` }}
+                  style={{ 
+                    background: `linear-gradient(135deg, ${subject.color}30, ${subject.color}10)`,
+                    boxShadow: `0 10px 30px ${subject.color}20`,
+                  }}
+                  whileHover={{ scale: 1.2, rotate: 15 }}
+                  transition={{ type: "spring", stiffness: 400 }}
                 >
-                  <subject.icon
-                    className="w-8 h-8"
-                    style={{ color: subject.color }}
-                  />
-                </div>
+                  <motion.div
+                    whileHover={{ rotate: 360 }}
+                    transition={{ duration: 0.6 }}
+                  >
+                    <subject.icon
+                      className="w-8 h-8"
+                      style={{ color: subject.color }}
+                    />
+                  </motion.div>
+                </motion.div>
 
                 <h4
                   className="font-bold text-lg mb-2"
@@ -1055,22 +1208,36 @@ export default function PSGLeapAcademy() {
             ].map((staff, idx) => (
               <motion.div
                 key={idx}
-                className="bg-white rounded-2xl p-8 text-center shadow-md hover:shadow-2xl transition-all duration-300"
+                className="rounded-2xl p-8 text-center card-hover"
+                style={{
+                  background: "linear-gradient(135deg, #ffffff, #f8fbf9)",
+                  border: "1px solid rgba(95, 207, 128, 0.2)",
+                }}
                 variants={{
                   hidden: { opacity: 0, y: 40 },
                   visible: { opacity: 1, y: 0 },
                 }}
                 whileHover={{ y: -8, scale: 1.03 }}
               >
-                <div
+                <motion.div
                   className="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full"
-                  style={{ background: `${staff.color}20` }}
+                  style={{ 
+                    background: `linear-gradient(135deg, ${staff.color}30, ${staff.color}10)`,
+                    boxShadow: `0 10px 30px ${staff.color}20`,
+                  }}
+                  whileHover={{ scale: 1.15, rotate: -10 }}
+                  transition={{ type: "spring", stiffness: 400 }}
                 >
-                  <staff.icon
-                    className="w-8 h-8"
-                    style={{ color: staff.color }}
-                  />
-                </div>
+                  <motion.div
+                    whileHover={{ rotate: 360 }}
+                    transition={{ duration: 0.6 }}
+                  >
+                    <staff.icon
+                      className="w-8 h-8"
+                      style={{ color: staff.color }}
+                    />
+                  </motion.div>
+                </motion.div>
 
                 <h4
                   className="font-bold text-lg mb-3"
@@ -1166,15 +1333,15 @@ export default function PSGLeapAcademy() {
             ].map((plan, idx) => (
               <motion.div
                 key={idx}
-                className={`relative bg-white rounded-2xl p-10 text-center transition-all duration-300
+                className={`relative rounded-2xl p-10 text-center card-hover
             ${plan.featured ? "border-4" : "border"}`}
                 style={{
+                  background: plan.featured
+                    ? "linear-gradient(135deg, #ffffff, #f0fdf4)"
+                    : "linear-gradient(135deg, #ffffff, #f8fbf9)",
                   borderColor: plan.featured
                     ? "#5fcf80"
-                    : "rgba(68, 68, 68, 0.1)",
-                  boxShadow: plan.featured
-                    ? "0 0 35px rgba(95, 207, 128, 0.25)"
-                    : "0 10px 20px rgba(0,0,0,0.08)",
+                    : "rgba(95, 207, 128, 0.2)",
                 }}
                 variants={{
                   hidden: { opacity: 0, y: 40 },
@@ -1228,7 +1395,13 @@ export default function PSGLeapAcademy() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="bg-white rounded-2xl p-8 shadow-md">
+            <motion.div 
+              className="rounded-2xl p-8 card-hover"
+              style={{
+                background: "linear-gradient(135deg, #ffffff, #f8fbf9)",
+                border: "1px solid rgba(95, 207, 128, 0.2)",
+              }}
+            >
               <h4
                 className="text-xl font-bold mb-4"
                 style={{
@@ -1243,9 +1416,15 @@ export default function PSGLeapAcademy() {
                 <li>• Test Series subscriptions</li>
                 <li>• Online-only programs</li>
               </ul>
-            </div>
+            </motion.div>
 
-            <div className="bg-white rounded-2xl p-8 shadow-md">
+            <motion.div
+              className="rounded-2xl p-8 card-hover"
+              style={{
+                background: "linear-gradient(135deg, #ffffff, #f8fbf9)",
+                border: "1px solid rgba(95, 207, 128, 0.2)",
+              }}
+            >
               <h4
                 className="text-xl font-bold mb-4"
                 style={{
@@ -1260,7 +1439,7 @@ export default function PSGLeapAcademy() {
                 <li>• Faculty recruitment & training</li>
                 <li>• Marketing & branding</li>
               </ul>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </section>
@@ -1330,7 +1509,11 @@ export default function PSGLeapAcademy() {
             ].map((marketing, idx) => (
               <motion.div
                 key={idx}
-                className="bg-[#f9f9f9] rounded-2xl p-8 text-center shadow-md hover:shadow-xl transition-all duration-300"
+                className="rounded-2xl p-8 text-center card-hover"
+                style={{
+                  background: "linear-gradient(135deg, #f9f9f9, #f5f5f5)",
+                  border: "1px solid rgba(95, 207, 128, 0.15)",
+                }}
                 variants={{
                   hidden: { opacity: 0, y: 40 },
                   visible: { opacity: 1, y: 0 },
@@ -1338,15 +1521,25 @@ export default function PSGLeapAcademy() {
                 whileHover={{ y: -8, scale: 1.03 }}
               >
                 {/* Icon Ring */}
-                <div
+                <motion.div
                   className="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full"
-                  style={{ background: `${marketing.color}20` }}
+                  style={{ 
+                    background: `linear-gradient(135deg, ${marketing.color}30, ${marketing.color}10)`,
+                    boxShadow: `0 10px 30px ${marketing.color}20`,
+                  }}
+                  whileHover={{ scale: 1.2 }}
+                  transition={{ type: "spring", stiffness: 400 }}
                 >
-                  <marketing.icon
-                    className="w-8 h-8"
-                    style={{ color: marketing.color }}
-                  />
-                </div>
+                  <motion.div
+                    whileHover={{ rotate: 360 }}
+                    transition={{ duration: 0.6 }}
+                  >
+                    <marketing.icon
+                      className="w-8 h-8"
+                      style={{ color: marketing.color }}
+                    />
+                  </motion.div>
+                </motion.div>
 
                 <h5
                   className="font-bold text-lg mb-3"
@@ -1632,30 +1825,35 @@ export default function PSGLeapAcademy() {
             ].map((goal, idx) => (
               <motion.div
                 key={idx}
-                className="rounded-2xl p-8 text-center shadow-lg transition-all hover:-translate-y-2"
+                className="rounded-2xl p-8 text-center card-hover"
                 style={{
                   background: goal.bg,
                   border: `2px solid ${goal.accent}`,
+                  boxShadow: `0 15px 40px ${goal.accent}20`,
                 }}
                 variants={{
                   hidden: { opacity: 0, y: 40 },
                   visible: { opacity: 1, y: 0 },
                 }}
+                whileHover={{ y: -8, scale: 1.02 }}
               >
-                <div
+                <motion.div
                   className="mx-auto mb-6 flex items-center justify-center rounded-full"
                   style={{
                     width: 80,
                     height: 80,
-                    background: "white",
-                    boxShadow: "0px 10px 25px rgba(0,0,0,0.08)",
+                    background: `linear-gradient(135deg, white, ${goal.accent}10)`,
+                    boxShadow: `0px 10px 30px ${goal.accent}25`,
+                    border: `2px solid ${goal.accent}30`,
                   }}
+                  whileHover={{ scale: 1.15, rotate: 360 }}
+                  transition={{ type: "spring", stiffness: 300 }}
                 >
                   <goal.icon
                     className="h-10 w-10"
                     style={{ color: goal.accent }}
                   />
-                </div>
+                </motion.div>
 
                 <h3
                   className="font-bold text-xl mb-3"
@@ -1756,7 +1954,11 @@ export default function PSGLeapAcademy() {
                 ].map((person, idx) => (
                   <motion.div
                     key={idx}
-                    className="bg-white p-8 rounded-xl text-center shadow-md hover:shadow-xl transition-all hover:-translate-y-2"
+                    className="p-8 rounded-xl text-center card-hover"
+                    style={{
+                      background: "linear-gradient(135deg, #ffffff, #f8fbf9)",
+                      border: "1px solid rgba(95, 207, 128, 0.2)",
+                    }}
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: idx * 0.15 }}
