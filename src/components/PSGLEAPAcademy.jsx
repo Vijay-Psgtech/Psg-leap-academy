@@ -109,7 +109,16 @@ export default function PSGLeapAcademy() {
         fontFamily: "'Open Sans', system-ui, -apple-system, sans-serif",
         color: "#444444",
       }}
+      role="application"
+      aria-label="PSG LEAP Academy Website"
     >
+      {/* Skip to Main Content Link */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-0 focus:left-0 focus:z-999 focus:p-4 focus:bg-[#5fcf80] focus:text-white focus:rounded-md"
+      >
+        Skip to main content
+      </a>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap');
         
@@ -117,11 +126,28 @@ export default function PSGLeapAcademy() {
           scroll-behavior: smooth;
         }
         
+        *:focus-visible {
+          outline: 3px solid #5fcf80;
+          outline-offset: 2px;
+        }
+        
         h1, h2, h3, h4, h5, h6 {
           font-family: 'Raleway', sans-serif;
           color: #37423b;
           font-weight: 700;
           letter-spacing: -0.5px;
+        }
+        
+        .sr-only {
+          position: absolute;
+          width: 1px;
+          height: 1px;
+          padding: 0;
+          margin: -1px;
+          overflow: hidden;
+          clip: rect(0, 0, 0, 0);
+          white-space: nowrap;
+          border: 0;
         }
         
         .nav-font {
@@ -147,15 +173,10 @@ export default function PSGLeapAcademy() {
           box-shadow: 0 10px 30px rgba(95, 207, 128, 0.2);
         }
         
-        .btn-accent::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: -100%;
-          width: 100%;
-          height: 100%;
-          background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-          transition: left 0.5s;
+        .btn-accent:focus-visible {
+          outline: 3px solid #fff;
+          outline-offset: 2px;
+          box-shadow: 0 20px 40px rgba(95, 207, 128, 0.35);
         }
         
         .btn-accent:hover {
@@ -164,13 +185,40 @@ export default function PSGLeapAcademy() {
           transform: translateY(-2px);
         }
         
-        .btn-accent:hover::before {
-          left: 100%;
+        .nav-button {
+          position: relative;
+          padding: 8px 0;
+          transition: color 0.3s ease;
+        }
+        
+        .nav-button:focus-visible {
+          outline: 2px solid #5fcf80;
+          outline-offset: 4px;
+          border-radius: 2px;
+        }
+        
+        .icon-button {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          min-width: 44px;
+          min-height: 44px;
+        }
+        
+        .icon-button:focus-visible {
+          outline: 2px solid #5fcf80;
+          outline-offset: 2px;
+          border-radius: 4px;
         }
         
         .card-hover {
           transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
           position: relative;
+        }
+        
+        .card-hover:focus-within {
+          outline: 2px solid #5fcf80;
+          outline-offset: 2px;
         }
         
         .card-hover::before {
@@ -239,6 +287,8 @@ export default function PSGLeapAcademy() {
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, type: "spring", stiffness: 100, damping: 15 }}
+        role="banner"
+        aria-label="Main navigation"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center gap-6 h-21 ">
@@ -259,19 +309,21 @@ export default function PSGLeapAcademy() {
             </motion.div>
 
             {/* DESKTOP NAV */}
-            <nav className="hidden lg:flex items-center space-x-8">
+            <nav className="hidden lg:flex items-center space-x-8" aria-label="Main navigation">
               {navItems.map((item, idx) => {
                 const isActive = activeSection === item.toLowerCase();
                 return (
                   <motion.button
                     key={item}
                     onClick={() => scrollToSection(item.toLowerCase())}
-                    className="relative text-sm font-medium"
+                    className="nav-button text-sm font-medium"
                     initial={{ opacity: 0, y: -6 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: idx * 0.05 }}
                     style={{ color: isActive ? "#5fcf80" : "#272828" }}
                     whileHover={{ color: "#5fcf80" }}
+                    aria-current={isActive ? "page" : undefined}
+                    aria-label={`Navigate to ${item} section`}
                   >
                     {item}
 
@@ -295,10 +347,11 @@ export default function PSGLeapAcademy() {
             {/* CTA */}
             <motion.button
               onClick={() => scrollToSection("programs")}
-              className="hidden lg:inline-flex justify-items-end px-6 py-2 rounded-full text-sm font-semibold"
-              style={{ background: "#5fcf80", color: "#ffffff" }}
-              whileHover={{ scale: 1.05 }}
+              className="hidden lg:inline-flex justify-items-end px-8 py-3 rounded-full text-sm font-semibold btn-accent icon-button"
+              whileHover={{ scale: 1.08, y: -2 }}
               whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
+              aria-label="Enroll in a program"
             >
               Enroll Now
             </motion.button>
@@ -308,6 +361,9 @@ export default function PSGLeapAcademy() {
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="lg:hidden"
               style={{ color: "#272828" }}
+              aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-expanded={isMenuOpen}
+              aria-controls="mobile-menu"
             >
               {isMenuOpen ? <X size={26} /> : <Menu size={26} />}
             </button>
@@ -318,19 +374,23 @@ export default function PSGLeapAcademy() {
       {/* Mobile Menu */}
       {isMenuOpen && (
         <motion.div 
+          id="mobile-menu"
           className="fixed inset-0 glassmorphism-dark z-40 lg:hidden pt-20"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
+          role="navigation"
+          aria-label="Mobile navigation menu"
         >
-          <nav className="flex flex-col items-center space-y-4 py-8 nav-font">
+          <nav className="flex flex-col items-center space-y-4 py-8 nav-font" aria-label="Mobile menu options">
             {navItems.map((item) => (
               <button
                 key={item}
                 onClick={() => scrollToSection(item.toLowerCase())}
-                className="text-lg font-medium px-6 py-3"
+                className="text-lg font-medium px-6 py-3 nav-button"
                 style={{ color: "#d6e6e6" }}
+                aria-label={`Navigate to ${item} section`}
               >
                 {item}
               </button>
@@ -343,6 +403,8 @@ export default function PSGLeapAcademy() {
       <section
         id="home"
         className="relative min-h-screen flex items-center justify-center overflow-hidden"
+        role="region"
+        aria-label="Home section with call to action"
       >
         {/* Background Image */}
         <motion.img
@@ -413,13 +475,14 @@ export default function PSGLeapAcademy() {
             {/* CTA */}
             <motion.button
               onClick={() => scrollToSection("programs")}
-              className="px-10 py-4 rounded-full font-semibold text-lg bg-white text-emerald-600 relative overflow-hidden group"
+              className="px-10 py-4 rounded-full font-semibold text-lg bg-white text-emerald-600 relative overflow-hidden group icon-button"
               whileHover={{
                 scale: 1.08,
                 boxShadow: "0 20px 50px rgba(16,185,129,0.4)",
               }}
               whileTap={{ scale: 0.95 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
+              aria-label="Explore coaching programs offered"
             >
               <motion.span
                 className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-emerald-600 -z-10"
@@ -438,7 +501,7 @@ export default function PSGLeapAcademy() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="relative bg-white py-20 fade-in">
+      <section id="about" className="relative bg-white py-20 fade-in" role="region" aria-label="About PSG LEAP Academy">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-14 items-center">
             {/* IMAGE BLOCK */}
@@ -599,13 +662,13 @@ export default function PSGLeapAcademy() {
       </section>
 
       {/* Target Audience */}
-      <section id="target" className="bg-white py-16">
+      <section id="target" className="bg-white py-16" role="region" aria-label="Target audience for our programs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2
               className="text-sm uppercase tracking-widest mb-2 section-title-line"
               style={{
-                color: "rgba(68, 68, 68, 0.5)",
+                color: "#666666",
                 fontFamily: "'Raleway', sans-serif",
                 fontWeight: 500,
               }}
@@ -672,14 +735,14 @@ export default function PSGLeapAcademy() {
       </section>
 
       {/* Programs Section */}
-      <section id="programs" className="py-20 bg-[#f9f9f9]">
+      <section id="programs" className="py-20 bg-[#f9f9f9]" role="region" aria-label="Our coaching programs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Heading */}
           <div className="text-center mb-16">
             <h2
               className="text-sm uppercase tracking-[0.3em] mb-3"
               style={{
-                color: "rgba(68, 68, 68, 0.5)",
+                color: "#666666",
                 fontFamily: "'Raleway', sans-serif",
               }}
             >
@@ -822,14 +885,14 @@ export default function PSGLeapAcademy() {
       </section>
 
       {/* Facilities */}
-      <section id="facilities" className="bg-white py-20 overflow-hidden">
+      <section id="facilities" className="bg-white py-20 overflow-hidden" role="region" aria-label="Our facilities and infrastructure">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Heading */}
           <div className="text-center mb-16">
             <h2
               className="text-sm uppercase tracking-[0.3em] mb-3"
               style={{
-                color: "rgba(68, 68, 68, 0.5)",
+                color: "#666666",
                 fontFamily: "'Raleway', sans-serif",
               }}
             >
@@ -949,14 +1012,14 @@ export default function PSGLeapAcademy() {
       </section>
 
       {/* Technology */}
-      <section id="technology" className="py-20 bg-[#f9f9f9] overflow-hidden">
+      <section id="technology" className="py-20 bg-[#f9f9f9] overflow-hidden" role="region" aria-label="Technology and digital tools">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Heading */}
           <div className="text-center mb-16">
             <h2
               className="text-sm uppercase tracking-[0.3em] mb-3"
               style={{
-                color: "rgba(68, 68, 68, 0.5)",
+                color: "#666666",
                 fontFamily: "'Raleway', sans-serif",
               }}
             >
@@ -1061,14 +1124,14 @@ export default function PSGLeapAcademy() {
       </section>
 
       {/* Faculty */}
-      <section id="faculty" className="bg-white py-20 overflow-hidden">
+      <section id="faculty" className="bg-white py-20 overflow-hidden" role="region" aria-label="Faculty and support staff">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Heading */}
           <div className="text-center mb-16">
             <h2
               className="text-sm uppercase tracking-[0.3em] mb-3"
               style={{
-                color: "rgba(68, 68, 68, 0.5)",
+                color: "#666666",
                 fontFamily: "'Raleway', sans-serif",
               }}
             >
@@ -1259,14 +1322,14 @@ export default function PSGLeapAcademy() {
       </section>
 
       {/* Pricing */}
-      <section id="pricing" className="py-20 bg-[#f9f9f9] overflow-hidden">
+      <section id="pricing" className="py-20 bg-[#f9f9f9] overflow-hidden" role="region" aria-label="Pricing and course packages">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Heading */}
           <div className="text-center mb-16">
             <h2
               className="text-sm uppercase tracking-[0.3em] mb-3"
               style={{
-                color: "rgba(68, 68, 68, 0.5)",
+                color: "#666666",
                 fontFamily: "'Raleway', sans-serif",
               }}
             >
@@ -1445,14 +1508,14 @@ export default function PSGLeapAcademy() {
       </section>
 
       {/* Marketing */}
-      <section id="outreach" className="bg-white py-20 overflow-hidden">
+      <section id="outreach" className="bg-white py-20 overflow-hidden" role="region" aria-label="Marketing and outreach initiatives">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Heading */}
           <div className="text-center mb-16">
             <h2
               className="text-sm uppercase tracking-[0.3em] mb-3"
               style={{
-                color: "rgba(68, 68, 68, 0.5)",
+                color: "#666666",
                 fontFamily: "'Raleway', sans-serif",
               }}
             >
@@ -1565,6 +1628,8 @@ export default function PSGLeapAcademy() {
         id="financials"
         className="py-20 overflow-hidden"
         style={{ background: "#f9f9f9" }}
+        role="region"
+        aria-label="Financial performance and budgets"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Heading */}
@@ -1572,7 +1637,7 @@ export default function PSGLeapAcademy() {
             <h2
               className="text-sm uppercase tracking-[0.3em] mb-3"
               style={{
-                color: "rgba(68, 68, 68, 0.5)",
+                color: "#666666",
                 fontFamily: "'Raleway', sans-serif",
               }}
             >
@@ -1764,7 +1829,7 @@ export default function PSGLeapAcademy() {
       </section>
 
       {/* Success Metrics */}
-      <section id="success" className="bg-white py-20 overflow-hidden">
+      <section id="success" className="bg-white py-20 overflow-hidden" role="region" aria-label="Success metrics and three-year goals">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Heading */}
           <div className="text-center mb-16">
