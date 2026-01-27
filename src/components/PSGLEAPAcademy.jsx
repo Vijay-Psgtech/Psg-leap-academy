@@ -1827,63 +1827,6 @@ export default function PSGLeapAcademy() {
                 “PSG LEAP Academy – Learn. Empower. Aspire. Progress.”
               </h3>
             </motion.div>
-
-            {/* Prepared By */}
-            <motion.div
-              className="mt-14"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ delay: 0.3 }}
-              viewport={{ once: true }}
-            >
-              <p
-                className="font-semibold mb-6 uppercase tracking-wider"
-                style={{ color: "#37423b" }}
-              >
-                Prepared by
-              </p>
-
-              <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
-                {[
-                  {
-                    name: "Girish Eswaran",
-                    role: "Principal",
-                    org: "PSG Public Schools",
-                  },
-                  {
-                    name: "Dr. Rudramoorthy",
-                    role: "Director",
-                    org: "PSG CARE",
-                  },
-                ].map((person, idx) => (
-                  <motion.div
-                    key={idx}
-                    className="p-8 rounded-xl text-center card-hover"
-                    style={{
-                      background: "linear-gradient(135deg, #ffffff, #f8fbf9)",
-                      border: "1px solid rgba(95, 207, 128, 0.2)",
-                    }}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: idx * 0.15 }}
-                    viewport={{ once: true }}
-                  >
-                    <p
-                      className="font-bold text-xl mb-1"
-                      style={{ color: "#37423b" }}
-                    >
-                      {person.name}
-                    </p>
-                    <p style={{ color: "rgba(68, 68, 68, 0.7)" }}>
-                      {person.role}
-                    </p>
-                    <p style={{ color: "rgba(68, 68, 68, 0.6)" }}>
-                      {person.org}
-                    </p>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
           </motion.div>
         </div>
       </section>
