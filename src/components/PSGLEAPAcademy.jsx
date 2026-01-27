@@ -472,7 +472,7 @@ export default function PSGLeapAcademy() {
             ].map((stat, idx) => (
               <motion.div
                 key={idx}
-                className="text-center p-8 bg-white rounded-2xl card-hover"
+                className="text-center p-8 bg-white rounded-2xl shadow-lg card-hover"
                 style={{
                   background: "linear-gradient(135deg, #ffffff, #f8fbf9)",
                   border: "1px solid rgba(95, 207, 128, 0.2)",
@@ -545,7 +545,7 @@ export default function PSGLeapAcademy() {
             ].map((item, idx) => (
               <motion.div
                 key={idx}
-                className="rounded-2xl p-8 text-center card-hover"
+                className="rounded-2xl shadow-lg p-8 text-center card-hover"
                 style={{
                   background: "linear-gradient(135deg, rgba(255,255,255,0.9), rgba(248,251,249,0.8))",
                   border: "1px solid rgba(95, 207, 128, 0.3)",
@@ -664,7 +664,7 @@ export default function PSGLeapAcademy() {
               ].map((course, idx) => (
                 <motion.div
                   key={idx}
-                  className="rounded-2xl p-6 card-hover relative overflow-hidden group"
+                  className="rounded-2xl shadow-lg p-6 card-hover relative overflow-hidden group"
                   style={{
                     background: "linear-gradient(135deg, #ffffff, #f8fbf9)",
                     border: "1px solid rgba(95, 207, 128, 0.2)",
@@ -800,7 +800,7 @@ export default function PSGLeapAcademy() {
             ].map((facility, idx) => (
               <motion.div
                 key={idx}
-                className="text-center p-8 rounded-2xl card-hover"
+                className="text-center p-8 rounded-2xl shadow-lg card-hover"
                 style={{
                   background: "linear-gradient(135deg, #f9f9f9, #f5f5f5)",
                   border: "1px solid rgba(95, 207, 128, 0.15)",
@@ -909,7 +909,7 @@ export default function PSGLeapAcademy() {
             ].map((tech, idx) => (
               <motion.div
                 key={idx}
-                className="rounded-2xl p-10 text-center card-hover"
+                className="rounded-2xl shadow-lg p-10 text-center card-hover"
                 style={{
                   background: "linear-gradient(135deg, #ffffff, #f8fbf9)",
                   border: "1px solid rgba(95, 207, 128, 0.2)",
@@ -1030,7 +1030,7 @@ export default function PSGLeapAcademy() {
             ].map((subject, idx) => (
               <motion.div
                 key={idx}
-                className="rounded-2xl p-8 text-center card-hover"
+                className="rounded-2xl shadow-lg p-8 text-center card-hover"
                 style={{
                   background: "linear-gradient(135deg, #f9f9f9, #f5f5f5)",
                   border: "1px solid rgba(95, 207, 128, 0.15)",
@@ -1110,7 +1110,7 @@ export default function PSGLeapAcademy() {
             ].map((staff, idx) => (
               <motion.div
                 key={idx}
-                className="rounded-2xl p-8 text-center card-hover"
+                className="rounded-2xl shadow-lg p-8 text-center card-hover"
                 style={{
                   background: "linear-gradient(135deg, #ffffff, #f8fbf9)",
                   border: "1px solid rgba(95, 207, 128, 0.2)",
@@ -1235,7 +1235,7 @@ export default function PSGLeapAcademy() {
             ].map((plan, idx) => (
               <motion.div
                 key={idx}
-                className={`relative rounded-2xl p-10 text-center card-hover
+                className={`relative rounded-2xl shadow-xl p-10 text-center card-hover
             ${plan.featured ? "border-4" : "border"}`}
                 style={{
                   background: plan.featured
@@ -1298,7 +1298,7 @@ export default function PSGLeapAcademy() {
             transition={{ duration: 0.6 }}
           >
             <motion.div 
-              className="rounded-2xl p-8 card-hover"
+              className="rounded-2xl shadow-lg p-8 card-hover"
               style={{
                 background: "linear-gradient(135deg, #ffffff, #f8fbf9)",
                 border: "1px solid rgba(95, 207, 128, 0.2)",
@@ -1321,7 +1321,7 @@ export default function PSGLeapAcademy() {
             </motion.div>
 
             <motion.div
-              className="rounded-2xl p-8 card-hover"
+              className="rounded-2xl shadow-lg p-8 card-hover"
               style={{
                 background: "linear-gradient(135deg, #ffffff, #f8fbf9)",
                 border: "1px solid rgba(95, 207, 128, 0.2)",
@@ -1411,7 +1411,7 @@ export default function PSGLeapAcademy() {
             ].map((marketing, idx) => (
               <motion.div
                 key={idx}
-                className="rounded-2xl p-8 text-center card-hover"
+                className="rounded-2xl shadow-lg p-8 text-center card-hover"
                 style={{
                   background: "linear-gradient(135deg, #f9f9f9, #f5f5f5)",
                   border: "1px solid rgba(95, 207, 128, 0.15)",
@@ -1647,7 +1647,7 @@ export default function PSGLeapAcademy() {
 
               {/* Deficit Highlight */}
               <div
-                className="rounded-xl p-5"
+                className="rounded-xl shadow-lg p-5"
                 style={{
                   background: "rgba(244, 67, 54, 0.12)",
                   borderLeft: "5px solid #f44336",
@@ -1729,7 +1729,7 @@ export default function PSGLeapAcademy() {
             ].map((goal, idx) => (
               <motion.div
                 key={idx}
-                className="rounded-2xl p-8 text-center card-hover"
+                className="rounded-2xl shadow-lg p-8 text-center card-hover"
                 style={{
                   background: goal.bg,
                   border: `2px solid ${goal.accent}`,
