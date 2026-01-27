@@ -299,7 +299,7 @@ export default function PSGLeapAcademy() {
               whileHover={{ scale: 1.03 }}
             >
               <motion.img
-                src="src/assets/img/logo.png"
+                src="logo.png"
                 alt="PSG LEAP Logo"
                 className="h-14 w-7xl object-contain"
                 initial={{ opacity: 0, y: -6 }}
