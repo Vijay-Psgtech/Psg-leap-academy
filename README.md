@@ -34,9 +34,17 @@ A single-page, responsive, and modern website designed to showcase academic prog
 - Navbar  
 - Hero Section  
 - About Section  
+- Stats Section 
+- Target Audience 
 - Programs Section  
-- Financial Overview  
-- Testimonials  
+- Facilities
+- Technology
+- Faculty
+- Pricing
+- Marketing
+- Financials
+- Success Metrics
+- Conclusion
 - Footer  
 
 **Layout**
