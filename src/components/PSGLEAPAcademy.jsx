@@ -489,9 +489,7 @@ export default function PSGLeapAcademy() {
             viewport={{ once: true, amount: 0.3 }}
             variants={{
               hidden: {},
-              visible: {
-                transition: { staggerChildren: 0.15 },
-              },
+              visible: { transition: { staggerChildren: 0.15 } },
             }}
           >
             {[
@@ -502,30 +500,32 @@ export default function PSGLeapAcademy() {
             ].map((stat, idx) => (
               <motion.div
                 key={idx}
-                className="text-center p-8 bg-white rounded-2xl shadow-lg card-hover"
-                style={{
-                  background: "linear-gradient(135deg, #ffffff, #f8fbf9)",
-                  border: "1px solid rgba(95, 207, 128, 0.2)",
-                }}
+                className="text-center p-10 bg-white/80 backdrop-blur-xl rounded-2xl 
+                     border border-emerald-200/40 shadow-lg
+                     hover:shadow-xl
+                     transition-all duration-500"
                 variants={{
                   hidden: { opacity: 0, y: 40 },
                   visible: { opacity: 1, y: 0 },
                 }}
-                whileHover={{ y: -6 }}
+                whileHover={{ y: -6, scale: 1.03 }}
               >
-                <AnimatedNumber value={stat.value} />
-                {stat.value === 250 ? (
-                  <span className="text-3xl font-bold text-[#5fcf80]">+</span>
-                ) : null}
-
-                <div
-                  className="text-sm md:text-base font-semibold mt-3"
-                  style={{
-                    color: "rgba(68, 68, 68, 0.75)",
-                    fontFamily: "'Raleway', sans-serif",
-                  }}
-                >
-                  {stat.label}
+                <div className="flex flex-col items-center justify-center">
+                  <motion.span
+                    className="text-6xl md:text-7xl font-extrabold text-emerald-500 drop-shadow-sm"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.3 }}
+                  >
+                    <AnimatedNumber value={stat.value} />
+                    {stat.value === 250 && <span className="text-3xl">+</span>}
+                  </motion.span>
+                  <div
+                    className="text-sm md:text-base font-medium mt-3 text-gray-600 max-w-[10rem]"
+                    style={{ fontFamily: "'Raleway', sans-serif" }}
+                  >
+                    {stat.label}
+                  </div>
                 </div>
               </motion.div>
             ))}
@@ -543,11 +543,10 @@ export default function PSGLeapAcademy() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2
-              className="text-sm uppercase tracking-widest mb-2 section-title-line"
+              className="text-sm uppercase tracking-widest mb-2 section-title-line text-gray-500"
               style={{
-                color: "#666666",
                 fontFamily: "'Raleway', sans-serif",
-                fontWeight: 500,
+                fontWeight: 600,
               }}
             >
               Target Audience
@@ -623,10 +622,10 @@ export default function PSGLeapAcademy() {
           {/* Section Heading */}
           <div className="text-center mb-16">
             <h2
-              className="text-sm uppercase tracking-[0.3em] mb-3"
+              className="text-sm uppercase tracking-[0.3em] mb-3 text-gray-500"
               style={{
-                color: "#666666",
                 fontFamily: "'Raleway', sans-serif",
+                fontWeight: 600,
               }}
             >
               Program Offerings
@@ -779,10 +778,10 @@ export default function PSGLeapAcademy() {
           {/* Heading */}
           <div className="text-center mb-16">
             <h2
-              className="text-sm uppercase tracking-[0.3em] mb-3"
+              className="text-sm uppercase tracking-[0.3em] mb-3 section-title-line text-gray-500"
               style={{
-                color: "#666666",
                 fontFamily: "'Raleway', sans-serif",
+                fontWeight: 600,
               }}
             >
               Infrastructure & Facilities
@@ -911,10 +910,10 @@ export default function PSGLeapAcademy() {
           {/* Heading */}
           <div className="text-center mb-16">
             <h2
-              className="text-sm uppercase tracking-[0.3em] mb-3"
+              className="text-sm uppercase tracking-[0.3em] mb-3 text-gray-500"
               style={{
-                color: "#666666",
                 fontFamily: "'Raleway', sans-serif",
+                fontWeight: 600,
               }}
             >
               Technology Integration
@@ -1028,10 +1027,10 @@ export default function PSGLeapAcademy() {
           {/* Section Heading */}
           <div className="text-center mb-16">
             <h2
-              className="text-sm uppercase tracking-[0.3em] mb-3"
+              className="text-sm uppercase tracking-[0.3em] mb-3 text-gray-500"
               style={{
-                color: "#666666",
                 fontFamily: "'Raleway', sans-serif",
+                fontWeight: 600,
               }}
             >
               Faculty & Staffing
@@ -1231,10 +1230,10 @@ export default function PSGLeapAcademy() {
           {/* Heading */}
           <div className="text-center mb-16">
             <h2
-              className="text-sm uppercase tracking-[0.3em] mb-3"
+              className="text-sm uppercase tracking-[0.3em] mb-3 text-gray-500 section-title-line"
               style={{
-                color: "#666666",
                 fontFamily: "'Raleway', sans-serif",
+                fontWeight: 600,
               }}
             >
               Pricing
@@ -1422,10 +1421,10 @@ export default function PSGLeapAcademy() {
           {/* Heading */}
           <div className="text-center mb-16">
             <h2
-              className="text-sm uppercase tracking-[0.3em] mb-3"
+              className="text-sm uppercase tracking-[0.3em] mb-3 text-gray-500 section-title-line"
               style={{
-                color: "#666666",
                 fontFamily: "'Raleway', sans-serif",
+                fontWeight: 600,
               }}
             >
               Marketing & Outreach
@@ -1543,10 +1542,10 @@ export default function PSGLeapAcademy() {
           {/* Heading */}
           <div className="text-center mb-16">
             <h2
-              className="text-sm uppercase tracking-[0.3em] mb-3"
+              className="text-sm uppercase tracking-[0.3em] mb-3 text-gray-500"
               style={{
-                color: "#666666",
                 fontFamily: "'Raleway', sans-serif",
+                fontWeight: 600,
               }}
             >
               Financial Statement
@@ -1747,10 +1746,10 @@ export default function PSGLeapAcademy() {
           {/* Heading */}
           <div className="text-center mb-16">
             <h2
-              className="text-sm uppercase tracking-[0.3em] mb-3 section-title-line"
+              className="text-sm uppercase tracking-[0.3em] mb-3 section-title-line text-gray-500"
               style={{
-                color: "rgba(68, 68, 68, 0.5)",
                 fontFamily: "'Raleway', sans-serif",
+                fontWeight: 600,
               }}
             >
               Success Metrics
