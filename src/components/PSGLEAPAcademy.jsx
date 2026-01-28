@@ -241,7 +241,7 @@ export default function PSGLeapAcademy() {
       {/* Hero Section */}
       <section
         id="home"
-        className="relative min-h-screen flex items-center justify-center overflow-hidden"
+        className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-r from-black/40 to-transparent"
         role="region"
         aria-label="Home section with call to action"
       >
@@ -273,7 +273,7 @@ export default function PSGLeapAcademy() {
           >
             {/* Heading */}
             <motion.h2
-              className="text-4xl md:text-6xl font-extrabold tracking-wide"
+              className="text-4xl md:text-6xl font-semibold tracking-wide"
               style={{ fontFamily: "'Raleway', sans-serif" }}
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -371,7 +371,7 @@ export default function PSGLeapAcademy() {
             {/* CONTENT BLOCK */}
             <div>
               <h3
-                className="text-3xl md:text-4xl font-extrabold mb-6 tracking-wide"
+                className="text-3xl md:text-4xl font-semibold mb-6 tracking-wide"
                 style={{
                   fontFamily: "'Raleway', sans-serif",
                   color: "#2f3e34",
@@ -450,7 +450,7 @@ export default function PSGLeapAcademy() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 bg-[#f9f9f9] overflow-hidden">
+      <section className="py-20 bg-gradient-to-br from-white via-emerald-50 to-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="grid grid-cols-2 md:grid-cols-4 gap-8"
@@ -574,7 +574,7 @@ export default function PSGLeapAcademy() {
       </section>
 
       {/* Programs Section */}
-      <section id="programs" className="py-20 bg-[#f9f9f9]" role="region" aria-label="Our coaching programs">
+      <section id="programs" className="py-20 bg-gradient-to-br from-white via-emerald-50 to-white" role="region" aria-label="Our coaching programs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Heading */}
           <div className="text-center mb-16">
@@ -589,7 +589,7 @@ export default function PSGLeapAcademy() {
             </h2>
 
             <p
-              className="text-3xl md:text-4xl font-extrabold"
+              className="text-3xl md:text-4xl font-semibold"
               style={{
                 fontFamily: "'Poppins', sans-serif",
                 color: "#37423b",
@@ -739,7 +739,7 @@ export default function PSGLeapAcademy() {
             </h2>
 
             <p
-              className="text-3xl md:text-4xl font-extrabold"
+              className="text-3xl md:text-4xl font-semibold"
               style={{
                 fontFamily: "'Poppins', sans-serif",
                 color: "#37423b",
@@ -851,7 +851,7 @@ export default function PSGLeapAcademy() {
       </section>
 
       {/* Technology */}
-      <section id="technology" className="py-20 bg-[#f9f9f9] overflow-hidden" role="region" aria-label="Technology and digital tools">
+      <section id="technology" className="py-20 bg-gradient-to-br from-white via-emerald-50 to-white overflow-hidden" role="region" aria-label="Technology and digital tools">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Heading */}
           <div className="text-center mb-16">
@@ -866,7 +866,7 @@ export default function PSGLeapAcademy() {
             </h2>
 
             <p
-              className="text-3xl md:text-4xl font-extrabold"
+              className="text-3xl md:text-4xl font-semibold"
               style={{
                 fontFamily: "'Poppins', sans-serif",
                 color: "#37423b",
@@ -978,7 +978,7 @@ export default function PSGLeapAcademy() {
             </h2>
 
             <p
-              className="text-3xl md:text-4xl font-extrabold"
+              className="text-3xl md:text-4xl font-semibold"
               style={{
                 fontFamily: "'Poppins', sans-serif",
                 color: "#37423b",
@@ -1161,7 +1161,7 @@ export default function PSGLeapAcademy() {
       </section>
 
       {/* Pricing */}
-      <section id="pricing" className="py-20 bg-[#f9f9f9] overflow-hidden" role="region" aria-label="Pricing and course packages">
+      <section id="pricing" className="py-20 bg-gradient-to-br from-white via-emerald-50 to-white overflow-hidden" role="region" aria-label="Pricing and course packages">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Heading */}
           <div className="text-center mb-16">
@@ -1176,7 +1176,7 @@ export default function PSGLeapAcademy() {
             </h2>
 
             <p
-              className="text-3xl md:text-4xl font-extrabold"
+              className="text-3xl md:text-4xl font-semibold"
               style={{
                 fontFamily: "'Poppins', sans-serif",
                 color: "#37423b",
@@ -1269,7 +1269,7 @@ export default function PSGLeapAcademy() {
                 </h3>
 
                 <div className="mb-8">
-                  <span className="text-3xl font-extrabold text-[#5fcf80]">
+                  <span className="text-3xl font-semibold text-[#5fcf80]">
                     ₹{plan.price}
                   </span>
                   <span className="text-sm text-black/60"> / year</span>
@@ -1362,7 +1362,7 @@ export default function PSGLeapAcademy() {
             </h2>
 
             <p
-              className="text-3xl md:text-4xl font-extrabold"
+              className="text-3xl md:text-4xl font-semibold"
               style={{
                 fontFamily: "'Poppins', sans-serif",
                 color: "#37423b",
@@ -1465,8 +1465,7 @@ export default function PSGLeapAcademy() {
       {/* Financials */}
       <section
         id="financials"
-        className="py-20 overflow-hidden"
-        style={{ background: "#f9f9f9" }}
+        className="py-20 bg-gradient-to-br from-white via-emerald-50 to-white overflow-hidden"
         role="region"
         aria-label="Financial performance and budgets"
       >
@@ -1484,7 +1483,7 @@ export default function PSGLeapAcademy() {
             </h2>
 
             <p
-              className="text-3xl md:text-4xl font-extrabold"
+              className="text-3xl md:text-4xl font-semibold"
               style={{
                 fontFamily: "'Poppins', sans-serif",
                 color: "#37423b",
@@ -1683,7 +1682,7 @@ export default function PSGLeapAcademy() {
             </h2>
 
             <p
-              className="text-3xl md:text-4xl font-extrabold"
+              className="text-3xl md:text-4xl font-semibold"
               style={{
                 fontFamily: "'Poppins', sans-serif",
                 color: "#37423b",
@@ -1769,7 +1768,7 @@ export default function PSGLeapAcademy() {
                   {goal.title}
                 </h3>
 
-                <p className="text-sm leading-relaxed text-black/70">
+                <p className="text-sm leading-relaxed text-gray-600">
                   {goal.desc}
                 </p>
               </motion.div>
@@ -1779,7 +1778,7 @@ export default function PSGLeapAcademy() {
       </section>
 
       {/* Conclusion */}
-      <section className="py-20" style={{ background: "#f9f9f9" }}>
+      <section className="py-20 bg-gradient-to-br from-white via-emerald-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center"
@@ -1790,7 +1789,7 @@ export default function PSGLeapAcademy() {
           >
             {/* Title */}
             <h2
-              className="text-3xl md:text-4xl font-extrabold mb-8"
+              className="text-3xl md:text-4xl font-semibold mb-8"
               style={{
                 fontFamily: "'Raleway', sans-serif",
                 color: "#37423b",
