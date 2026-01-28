@@ -196,8 +196,14 @@ export default function PSGLeapAcademy() {
             {/* CTA */}
             <motion.button
               onClick={() => scrollToSection("programs")}
-              className="hidden lg:inline-flex justify-items-end px-8 py-3 rounded-full text-sm font-semibold btn-accent icon-button"
-              whileHover={{ scale: 1.08, y: -2 }}
+              className="hidden lg:inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full 
+             text-sm font-semibold text-white bg-gradient-to-r from-emerald-500 to-emerald-600 
+             shadow-lg shadow-emerald-200/30 transition-all duration-300"
+              whileHover={{
+                scale: 1.08,
+                y: -2,
+                boxShadow: "0 10px 25px rgba(16, 185, 129, 0.4)",
+              }}
               whileTap={{ scale: 0.95 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
               aria-label="Enroll in a program"
@@ -2057,8 +2063,8 @@ export default function PSGLeapAcademy() {
       {showScrollTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 p-3 rounded-full text-white transition-all duration-400"
-          style={{ background: "#5fcf80", width: "44px", height: "44px" }}
+          className="fixed bottom-8 right-8 p-2 rounded-sm text-white transition-all duration-400 bg-gradient-to-r from-emerald-500 to-emerald-600 shadow-lg shadow-emerald-200/30 shadow-lg hover:shadow-xl z-50"
+          style={{ boxShadow: "0 4px 15px rgba(95, 207, 128, 0.4)" }}
           onMouseEnter={(e) =>
             (e.target.style.background = "rgba(95, 207, 128, 0.8)")
           }
