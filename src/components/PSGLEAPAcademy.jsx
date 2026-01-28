@@ -366,46 +366,43 @@ export default function PSGLeapAcademy() {
       {/* About Section */}
       <section
         id="about"
-        className="relative bg-white py-20 fade-in"
+        className="relative bg-gradient-to-br from-white via-emerald-50/20 to-white py-24 overflow-hidden"
         role="region"
         aria-label="About PSG LEAP Academy"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-14 items-center">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
             {/* IMAGE BLOCK */}
             <motion.div
-              className="relative rounded-2xl flex items-center justify-center h-80 sm:h-96 overflow-hidden"
-              style={{
-                background: "linear-gradient(135deg, #e8f5e9, #f9f9f9)",
-                boxShadow:
-                  "0 20px 50px rgba(95, 207, 128, 0.15), inset 0 1px 1px rgba(255,255,255,0.8)",
-              }}
+              className="relative rounded-[2rem] overflow-hidden shadow-2xl"
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.4 }}
             >
               <motion.img
                 src="src/assets/img/about.jpg"
                 alt="About PSG LEAP Academy"
-                className="w-full h-full object-cover rounded-2xl"
+                className="w-full h-full object-cover"
                 initial={{ scale: 1.05 }}
-                whileHover={{ scale: 1.15 }}
+                whileHover={{ scale: 1.1 }}
                 transition={{ duration: 0.6 }}
               />
-              <motion.div
-                className="absolute inset-0 bg-black/5 rounded-2xl"
-                initial={{ opacity: 0 }}
-                whileHover={{ opacity: 1 }}
-              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
             </motion.div>
 
             {/* CONTENT BLOCK */}
-            <div>
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <span className="inline-block bg-emerald-100 text-emerald-700 text-xs font-semibold px-3 py-1 rounded-full mb-4">
+                About Us
+              </span>
+
               <h3
-                className="text-3xl md:text-4xl font-semibold mb-6 tracking-wide"
-                style={{
-                  fontFamily: "'Raleway', sans-serif",
-                  color: "#2f3e34",
-                }}
+                className="text-4xl font-bold mb-6 text-gray-900 leading-snug"
+                style={{ fontFamily: "'Raleway', sans-serif" }}
               >
                 Introduction
                 <span className="block text-lg font-medium text-emerald-600 mt-2">
@@ -413,68 +410,52 @@ export default function PSGLeapAcademy() {
                 </span>
               </h3>
 
-              <p
-                className="mb-8 text-base leading-relaxed italic"
-                style={{ color: "#4a4a4a" }}
-              >
-                PSG LEAP Academy is envisioned as a state-of-the-art coaching
-                centre under PSG Institutions / PSG Public Schools, dedicated to
-                preparing students for India's most competitive examinations —{" "}
-                <strong>NEET (Medical)</strong> and{" "}
-                <strong>JEE (Engineering)</strong>. The Academy integrates
-                rigorous academic training, personalized mentoring, and advanced
-                learning technologies to empower students to Aspire their career
+              <p className="text-gray-600 mb-8 leading-relaxed max-w-[40rem] italic">
+                PSG LEAP Academy is a premier initiative of PSG Institutions /
+                PSG Public Schools, committed to preparing students for India’s
+                most competitive examinations —{" "}
+                <strong className="text-emerald-600">NEET</strong> and{" "}
+                <strong className="text-emerald-600">JEE</strong>. It combines
+                rigorous academics, personalized mentoring, and advanced
+                learning technologies to help students realize their
                 aspirations.
               </p>
 
-              <h4
-                className="text-xl font-bold mb-5"
-                style={{
-                  fontFamily: "'Raleway', sans-serif",
-                  color: "#2f3e34",
-                }}
-              >
-                Why PSG LEAP Academy?
+              <h4 className="text-xl font-semibold mb-4 text-gray-800">
+                Why Choose PSG LEAP Academy?
               </h4>
 
               <ul className="space-y-4 mb-8">
                 {[
-                  "Legacy of PSG Institutions – credibility and trust in education for a century",
-                  "Expert Faculty – subject specialists with proven track record in NEET & JEE coaching",
-                  "Blended Learning Model – classroom + digital resources + AI-based test analytics",
-                  "Individual Mentoring – personal progress tracking, doubt-clearing, and counselling",
-                  "Holistic Development – stress management, time management, and career guidance",
+                  "Legacy of PSG Institutions – trusted in education for over a century",
+                  "Expert Faculty – experienced specialists in NEET & JEE coaching",
+                  "Blended Learning – classroom + digital + AI-based analytics",
+                  "Personal Mentoring – focused progress tracking and guidance",
+                  "Holistic Development – career, time & stress management support",
                 ].map((item, idx) => (
-                  <li key={idx} className="flex items-start">
-                    <span
-                      className="mr-4 mt-1 text-lg font-bold"
-                      style={{ color: "#34d399" }}
-                    >
+                  <li key={idx} className="flex items-start gap-3">
+                    <div className="w-5 h-5 flex items-center justify-center bg-emerald-100 text-emerald-600 rounded-full text-sm font-bold">
                       ✓
-                    </span>
-                    <span style={{ color: "#444444" }}>{item}</span>
+                    </div>
+                    <span className="text-gray-700">{item}</span>
                   </li>
                 ))}
               </ul>
 
-              {/* VISION & MISSION */}
-              <div
-                className="space-y-4 border-l-4 pl-6"
-                style={{ borderColor: "#5fcf80" }}
-              >
-                <p style={{ color: "#444444" }}>
-                  <strong style={{ color: "#2f3e34" }}>Vision:</strong> To
-                  become the leading destination in South India for holistic and
+              {/* Vision & Mission */}
+              <div className="space-y-4 border-l-4 border-emerald-500/70 bg-emerald-50/30 rounded-r-xl shadow-sm p-6">
+                <p className="text-gray-700">
+                  <strong className="text-emerald-700">Vision:</strong> To
+                  become the leading destination in South India for holistic,
                   result-oriented coaching for NEET & JEE.
                 </p>
-                <p style={{ color: "#444444" }}>
-                  <strong style={{ color: "#2f3e34" }}>Mission:</strong> To
-                  provide conceptual clarity, consistent practice, and emotional
-                  resilience to students through an integrated academic
-                  ecosystem.
+                <p className="text-gray-700">
+                  <strong className="text-emerald-700">Mission:</strong> To
+                  foster conceptual clarity, consistent practice, and emotional
+                  resilience through an integrated academic ecosystem.
                 </p>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
