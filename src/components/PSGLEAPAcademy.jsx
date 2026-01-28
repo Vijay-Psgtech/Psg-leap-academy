@@ -493,7 +493,7 @@ export default function PSGLeapAcademy() {
               >
                 <div className="flex flex-col items-center justify-center">
                   <motion.span
-                    className="text-6xl md:text-7xl font-extrabold text-emerald-500 drop-shadow-sm"
+                    className="text-6xl md:text-7xl font-extrabold text-emerald-500 drop-shadow-lg"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.3 }}
@@ -573,7 +573,7 @@ export default function PSGLeapAcademy() {
                 whileHover={{ y: -8 }}
               >
                 <item.icon
-                  className="h-12 w-12 mx-auto mb-6"
+                  className="h-12 w-12 mx-auto mb-6 drop-shadow-lg"
                   style={{ color: "#5fcf80" }}
                 />
                 <h4
@@ -711,7 +711,7 @@ export default function PSGLeapAcademy() {
                         {course.category}
                       </span>
                       <span
-                        className="font-bold text-sm"
+                        className="font-bold text-sm drop-shadow-lg"
                         style={{ color: "#5fcf80" }}
                       >
                         {course.price}
@@ -720,7 +720,7 @@ export default function PSGLeapAcademy() {
 
                     {/* Title */}
                     <h3
-                      className="text-lg font-bold mb-3"
+                      className="text-lg font-bold mb-3 drop-shadow-lg"
                       style={{
                         fontFamily: "'Raleway', sans-serif",
                         color: "#37423b",
@@ -842,7 +842,7 @@ export default function PSGLeapAcademy() {
                 whileHover={{ y: -8, scale: 1.02 }}
               >
                 <motion.div
-                  className="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full"
+                  className="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full drop-shadow-lg"
                   style={{
                     background: `linear-gradient(135deg, ${facility.color}30, ${facility.color}10)`,
                     boxShadow: `0 10px 30px ${facility.color}20`,
@@ -957,7 +957,7 @@ export default function PSGLeapAcademy() {
               >
                 {/* Icon */}
                 <motion.div
-                  className="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full"
+                  className="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full drop-shadow-lg"
                   style={{
                     background: `linear-gradient(135deg, ${tech.color}30, ${tech.color}10)`,
                     boxShadow: `0 10px 30px ${tech.color}20`,
@@ -1083,7 +1083,7 @@ export default function PSGLeapAcademy() {
               >
                 {/* Icon Ring */}
                 <motion.div
-                  className="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full"
+                  className="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full drop-shadow-lg"
                   style={{
                     background: `linear-gradient(135deg, ${subject.color}30, ${subject.color}10)`,
                     boxShadow: `0 10px 30px ${subject.color}20`,
@@ -1162,7 +1162,7 @@ export default function PSGLeapAcademy() {
                 whileHover={{ y: -8, scale: 1.03 }}
               >
                 <motion.div
-                  className="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full"
+                  className="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full drop-shadow-lg"
                   style={{
                     background: `linear-gradient(135deg, ${staff.color}30, ${staff.color}10)`,
                     boxShadow: `0 10px 30px ${staff.color}20`,
@@ -1280,7 +1280,7 @@ export default function PSGLeapAcademy() {
             ].map((plan, idx) => (
               <motion.div
                 key={idx}
-                className={`relative rounded-2xl shadow-xl p-10 text-center card-hover
+                className={`relative rounded-2xl shadow-xl p-10 text-center card-hover drop-shadow-lg
             ${plan.featured ? "border-4" : "border"}`}
                 style={{
                   background: plan.featured
@@ -1474,7 +1474,7 @@ export default function PSGLeapAcademy() {
               >
                 {/* Icon Ring */}
                 <motion.div
-                  className="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full"
+                  className="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full drop-shadow-lg"
                   style={{
                     background: `linear-gradient(135deg, ${marketing.color}30, ${marketing.color}10)`,
                     boxShadow: `0 10px 30px ${marketing.color}20`,
