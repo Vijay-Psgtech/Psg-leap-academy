@@ -98,7 +98,9 @@ export default function PSGLeapAcademy() {
         animate={{ count: value }}
         transition={{ duration: 2, ease: "easeOut" }}
         onUpdate={(latest) => setCount(Math.floor(latest.count))}
-      >{count}</motion.span>
+      >
+        {count}
+      </motion.span>
     );
   };
 
@@ -125,7 +127,12 @@ export default function PSGLeapAcademy() {
         className="fixed top-0 w-full z-60 glassmorphism"
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, type: "spring", stiffness: 100, damping: 15 }}
+        transition={{
+          duration: 0.6,
+          type: "spring",
+          stiffness: 100,
+          damping: 15,
+        }}
         role="banner"
         aria-label="Main navigation"
       >
@@ -148,7 +155,10 @@ export default function PSGLeapAcademy() {
             </motion.div>
 
             {/* DESKTOP NAV */}
-            <nav className="hidden lg:flex items-center space-x-8" aria-label="Main navigation">
+            <nav
+              className="hidden lg:flex items-center space-x-8"
+              aria-label="Main navigation"
+            >
               {navItems.map((item, idx) => {
                 const isActive = activeSection === item.toLowerCase();
                 return (
@@ -200,7 +210,9 @@ export default function PSGLeapAcademy() {
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="lg:hidden"
               style={{ color: "#272828" }}
-              aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-label={
+                isMenuOpen ? "Close navigation menu" : "Open navigation menu"
+              }
               aria-expanded={isMenuOpen}
               aria-controls="mobile-menu"
             >
@@ -212,7 +224,7 @@ export default function PSGLeapAcademy() {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <motion.div 
+        <motion.div
           id="mobile-menu"
           className="fixed inset-0 glassmorphism-dark z-40 lg:hidden pt-20"
           initial={{ opacity: 0 }}
@@ -222,7 +234,10 @@ export default function PSGLeapAcademy() {
           role="navigation"
           aria-label="Mobile navigation menu"
         >
-          <nav className="flex flex-col items-center space-y-4 py-8 nav-font" aria-label="Mobile menu options">
+          <nav
+            className="flex flex-col items-center space-y-4 py-8 nav-font"
+            aria-label="Mobile menu options"
+          >
             {navItems.map((item) => (
               <button
                 key={item}
@@ -269,7 +284,12 @@ export default function PSGLeapAcademy() {
             className="rounded-3xl p-6 sm:p-8 md:p-12"
             initial={{ y: 40, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.3, duration: 0.8, type: "spring", stiffness: 60 }}
+            transition={{
+              delay: 0.3,
+              duration: 0.8,
+              type: "spring",
+              stiffness: 60,
+            }}
           >
             {/* Heading */}
             <motion.h2
@@ -329,9 +349,7 @@ export default function PSGLeapAcademy() {
                 whileHover={{ x: 0 }}
                 transition={{ duration: 0.3 }}
               />
-              <motion.span
-                className="group-hover:text-white transition-colors duration-300"
-              >
+              <motion.span className="group-hover:text-white transition-colors duration-300">
                 Explore Programs
               </motion.span>
             </motion.button>
@@ -340,7 +358,12 @@ export default function PSGLeapAcademy() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="relative bg-white py-20 fade-in" role="region" aria-label="About PSG LEAP Academy">
+      <section
+        id="about"
+        className="relative bg-white py-20 fade-in"
+        role="region"
+        aria-label="About PSG LEAP Academy"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-14 items-center">
             {/* IMAGE BLOCK */}
@@ -348,7 +371,8 @@ export default function PSGLeapAcademy() {
               className="relative rounded-2xl flex items-center justify-center h-80 sm:h-96 overflow-hidden"
               style={{
                 background: "linear-gradient(135deg, #e8f5e9, #f9f9f9)",
-                boxShadow: "0 20px 50px rgba(95, 207, 128, 0.15), inset 0 1px 1px rgba(255,255,255,0.8)",
+                boxShadow:
+                  "0 20px 50px rgba(95, 207, 128, 0.15), inset 0 1px 1px rgba(255,255,255,0.8)",
               }}
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.4 }}
@@ -361,7 +385,7 @@ export default function PSGLeapAcademy() {
                 whileHover={{ scale: 1.15 }}
                 transition={{ duration: 0.6 }}
               />
-              <motion.div 
+              <motion.div
                 className="absolute inset-0 bg-black/5 rounded-2xl"
                 initial={{ opacity: 0 }}
                 whileHover={{ opacity: 1 }}
@@ -484,6 +508,9 @@ export default function PSGLeapAcademy() {
                 whileHover={{ y: -6 }}
               >
                 <AnimatedNumber value={stat.value} />
+                {stat.value === 250 ? (
+                  <span className="text-3xl font-bold text-[#5fcf80]">+</span>
+                ) : null}
 
                 <div
                   className="text-sm md:text-base font-semibold mt-3"
@@ -501,7 +528,12 @@ export default function PSGLeapAcademy() {
       </section>
 
       {/* Target Audience */}
-      <section id="target" className="bg-white py-16" role="region" aria-label="Target audience for our programs">
+      <section
+        id="target"
+        className="bg-white py-16"
+        role="region"
+        aria-label="Target audience for our programs"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2
@@ -547,7 +579,8 @@ export default function PSGLeapAcademy() {
                 key={idx}
                 className="rounded-2xl shadow-lg p-8 text-center card-hover"
                 style={{
-                  background: "linear-gradient(135deg, rgba(255,255,255,0.9), rgba(248,251,249,0.8))",
+                  background:
+                    "linear-gradient(135deg, rgba(255,255,255,0.9), rgba(248,251,249,0.8))",
                   border: "1px solid rgba(95, 207, 128, 0.3)",
                   backdropFilter: "blur(10px)",
                 }}
@@ -574,7 +607,12 @@ export default function PSGLeapAcademy() {
       </section>
 
       {/* Programs Section */}
-      <section id="programs" className="py-20 bg-gradient-to-br from-white via-emerald-50 to-white" role="region" aria-label="Our coaching programs">
+      <section
+        id="programs"
+        className="py-20 bg-gradient-to-br from-white via-emerald-50 to-white"
+        role="region"
+        aria-label="Our coaching programs"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Heading */}
           <div className="text-center mb-16">
@@ -602,10 +640,11 @@ export default function PSGLeapAcademy() {
           {/* Content Grid */}
           <div className="grid lg:grid-cols-2 gap-14 items-start">
             {/* Left Image */}
-            <motion.div 
+            <motion.div
               className="relative rounded-3xl overflow-hidden"
               style={{
-                boxShadow: "0 20px 50px rgba(95, 207, 128, 0.2), 0 0 40px rgba(95, 207, 128, 0.1)",
+                boxShadow:
+                  "0 20px 50px rgba(95, 207, 128, 0.2), 0 0 40px rgba(95, 207, 128, 0.1)",
               }}
               whileHover={{ scale: 1.02 }}
             >
@@ -617,7 +656,7 @@ export default function PSGLeapAcademy() {
                 whileHover={{ scale: 1.15 }}
                 transition={{ duration: 0.6 }}
               />
-              <motion.div 
+              <motion.div
                 className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"
                 initial={{ opacity: 0.3 }}
                 whileHover={{ opacity: 0.5 }}
@@ -677,44 +716,44 @@ export default function PSGLeapAcademy() {
                     initial={{ opacity: 0 }}
                   />
                   <div className="relative z-10">
-                  {/* Badge & Price */}
-                  <div className="flex justify-between items-center mb-4">
-                    <span
-                      className="px-4 py-1.5 rounded-full text-xs font-semibold uppercase"
-                      style={{ background: "#5fcf80", color: "#ffffff" }}
+                    {/* Badge & Price */}
+                    <div className="flex justify-between items-center mb-4">
+                      <span
+                        className="px-4 py-1.5 rounded-full text-xs font-semibold uppercase"
+                        style={{ background: "#5fcf80", color: "#ffffff" }}
+                      >
+                        {course.category}
+                      </span>
+                      <span
+                        className="font-bold text-sm"
+                        style={{ color: "#5fcf80" }}
+                      >
+                        {course.price}
+                      </span>
+                    </div>
+
+                    {/* Title */}
+                    <h3
+                      className="text-lg font-bold mb-3"
+                      style={{
+                        fontFamily: "'Raleway', sans-serif",
+                        color: "#37423b",
+                      }}
                     >
-                      {course.category}
-                    </span>
-                    <span
-                      className="font-bold text-sm"
-                      style={{ color: "#5fcf80" }}
-                    >
-                      {course.price}
-                    </span>
-                  </div>
+                      {course.title}
+                    </h3>
 
-                  {/* Title */}
-                  <h3
-                    className="text-lg font-bold mb-3"
-                    style={{
-                      fontFamily: "'Raleway', sans-serif",
-                      color: "#37423b",
-                    }}
-                  >
-                    {course.title}
-                  </h3>
+                    {/* Details */}
+                    <p className="text-sm mb-2 text-[#444]">
+                      <strong>Duration:</strong> {course.duration}
+                    </p>
+                    <p className="text-sm mb-3 text-[#444]">
+                      <strong>Mode:</strong> {course.mode}
+                    </p>
 
-                  {/* Details */}
-                  <p className="text-sm mb-2 text-[#444]">
-                    <strong>Duration:</strong> {course.duration}
-                  </p>
-                  <p className="text-sm mb-3 text-[#444]">
-                    <strong>Mode:</strong> {course.mode}
-                  </p>
-
-                  <p className="text-sm text-black/70 leading-relaxed">
-                    <strong>Key Features:</strong> {course.features}
-                  </p>
+                    <p className="text-sm text-black/70 leading-relaxed">
+                      <strong>Key Features:</strong> {course.features}
+                    </p>
                   </div>
                 </motion.div>
               ))}
@@ -724,7 +763,12 @@ export default function PSGLeapAcademy() {
       </section>
 
       {/* Facilities */}
-      <section id="facilities" className="bg-white py-20 overflow-hidden" role="region" aria-label="Our facilities and infrastructure">
+      <section
+        id="facilities"
+        className="bg-white py-20 overflow-hidden"
+        role="region"
+        aria-label="Our facilities and infrastructure"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Heading */}
           <div className="text-center mb-16">
@@ -813,7 +857,7 @@ export default function PSGLeapAcademy() {
               >
                 <motion.div
                   className="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full"
-                  style={{ 
+                  style={{
                     background: `linear-gradient(135deg, ${facility.color}30, ${facility.color}10)`,
                     boxShadow: `0 10px 30px ${facility.color}20`,
                   }}
@@ -851,7 +895,12 @@ export default function PSGLeapAcademy() {
       </section>
 
       {/* Technology */}
-      <section id="technology" className="py-20 bg-gradient-to-br from-white via-emerald-50 to-white overflow-hidden" role="region" aria-label="Technology and digital tools">
+      <section
+        id="technology"
+        className="py-20 bg-gradient-to-br from-white via-emerald-50 to-white overflow-hidden"
+        role="region"
+        aria-label="Technology and digital tools"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Heading */}
           <div className="text-center mb-16">
@@ -923,7 +972,7 @@ export default function PSGLeapAcademy() {
                 {/* Icon */}
                 <motion.div
                   className="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full"
-                  style={{ 
+                  style={{
                     background: `linear-gradient(135deg, ${tech.color}30, ${tech.color}10)`,
                     boxShadow: `0 10px 30px ${tech.color}20`,
                   }}
@@ -963,7 +1012,12 @@ export default function PSGLeapAcademy() {
       </section>
 
       {/* Faculty */}
-      <section id="faculty" className="bg-white py-20 overflow-hidden" role="region" aria-label="Faculty and support staff">
+      <section
+        id="faculty"
+        className="bg-white py-20 overflow-hidden"
+        role="region"
+        aria-label="Faculty and support staff"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Heading */}
           <div className="text-center mb-16">
@@ -1044,7 +1098,7 @@ export default function PSGLeapAcademy() {
                 {/* Icon Ring */}
                 <motion.div
                   className="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full"
-                  style={{ 
+                  style={{
                     background: `linear-gradient(135deg, ${subject.color}30, ${subject.color}10)`,
                     boxShadow: `0 10px 30px ${subject.color}20`,
                   }}
@@ -1123,7 +1177,7 @@ export default function PSGLeapAcademy() {
               >
                 <motion.div
                   className="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full"
-                  style={{ 
+                  style={{
                     background: `linear-gradient(135deg, ${staff.color}30, ${staff.color}10)`,
                     boxShadow: `0 10px 30px ${staff.color}20`,
                   }}
@@ -1161,7 +1215,12 @@ export default function PSGLeapAcademy() {
       </section>
 
       {/* Pricing */}
-      <section id="pricing" className="py-20 bg-gradient-to-br from-white via-emerald-50 to-white overflow-hidden" role="region" aria-label="Pricing and course packages">
+      <section
+        id="pricing"
+        className="py-20 bg-gradient-to-br from-white via-emerald-50 to-white overflow-hidden"
+        role="region"
+        aria-label="Pricing and course packages"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Heading */}
           <div className="text-center mb-16">
@@ -1297,7 +1356,7 @@ export default function PSGLeapAcademy() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <motion.div 
+            <motion.div
               className="rounded-2xl shadow-lg p-8 card-hover"
               style={{
                 background: "linear-gradient(135deg, #ffffff, #f8fbf9)",
@@ -1347,7 +1406,12 @@ export default function PSGLeapAcademy() {
       </section>
 
       {/* Marketing */}
-      <section id="outreach" className="bg-white py-20 overflow-hidden" role="region" aria-label="Marketing and outreach initiatives">
+      <section
+        id="outreach"
+        className="bg-white py-20 overflow-hidden"
+        role="region"
+        aria-label="Marketing and outreach initiatives"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Heading */}
           <div className="text-center mb-16">
@@ -1425,7 +1489,7 @@ export default function PSGLeapAcademy() {
                 {/* Icon Ring */}
                 <motion.div
                   className="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-full"
-                  style={{ 
+                  style={{
                     background: `linear-gradient(135deg, ${marketing.color}30, ${marketing.color}10)`,
                     boxShadow: `0 10px 30px ${marketing.color}20`,
                   }}
@@ -1667,7 +1731,12 @@ export default function PSGLeapAcademy() {
       </section>
 
       {/* Success Metrics */}
-      <section id="success" className="bg-white py-20 overflow-hidden" role="region" aria-label="Success metrics and three-year goals">
+      <section
+        id="success"
+        className="bg-white py-20 overflow-hidden"
+        role="region"
+        aria-label="Success metrics and three-year goals"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Heading */}
           <div className="text-center mb-16">
