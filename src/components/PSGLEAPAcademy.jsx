@@ -1,21 +1,22 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 
 import Header from "./sections/Header";
-import Hero from "./sections/Hero";
-import About from "./sections/About";
-import Stats from "./sections/Stats";
-import Target from "./sections/Target";
-import Programs from "./sections/Programs";
-import Facilities from "./sections/Facilities";
-import Technology from "./sections/Technology";
-import Faculty from "./sections/Faculty";
-import Pricing from "./sections/Pricing";
-import Marketing from "./sections/Marketing";
-import Finanicals from "./sections/Finanicals";
-import Success from "./sections/Success";
-import Conslusion from "./sections/Conslusion";
 import Footer from "./sections/Footer";
 import ScrollToTop from "./sections/ScrollToTop";
+
+const Hero = lazy(() => import("./sections/Hero"));
+const About = lazy(() => import("./sections/About"));
+const Stats = lazy(() => import("./sections/Stats"));
+const Target = lazy(() => import("./sections/Target"));
+const Programs = lazy(() => import("./sections/Programs"));
+const Facilities = lazy(() => import("./sections/Facilities"));
+const Technology = lazy(() => import("./sections/Technology"));
+const Faculty = lazy(() => import("./sections/Faculty"));
+const Pricing = lazy(() => import("./sections/Pricing"));
+const Marketing = lazy(() => import("./sections/Marketing"));
+const Finanicals = lazy(() => import("./sections/Finanicals"));
+const Success = lazy(() => import("./sections/Success"));
+const Conslusion = lazy(() => import("./sections/Conslusion"));
 
 const scrollToSection = (id) => {
   const element = document.getElementById(id);
@@ -51,23 +52,24 @@ export default function PSGLEAPAcademy() {
       >
         Skip to main content
       </a>
-      <Header scrollToSection={scrollToSection} />
-
-      <Hero scrollToSection={scrollToSection} />
-      <About />
-      <Stats />
-      <Target />
-      <Programs />
-      <Facilities />
-      <Technology />
-      <Faculty />
-      <Pricing />
-      <Marketing />
-      <Finanicals />
-      <Success />
-      <Conslusion />
-      <Footer scrollToSection={scrollToSection} />
-      <ScrollToTop />
+      <Suspense fallback={<div className="text-center mt-20">Loading...</div>}>
+        <Header scrollToSection={scrollToSection} />
+        <Hero scrollToSection={scrollToSection} />
+        <About />
+        <Stats />
+        <Target />
+        <Programs />
+        <Facilities />
+        <Technology />
+        <Faculty />
+        <Pricing />
+        <Marketing />
+        <Finanicals />
+        <Success />
+        <Conslusion />
+        <Footer scrollToSection={scrollToSection} />
+        <ScrollToTop />
+      </Suspense>
     </div>
   );
 }
