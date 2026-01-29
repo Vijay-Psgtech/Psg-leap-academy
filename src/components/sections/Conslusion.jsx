@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 const Conslusion = () => {
   return (
-    <section className="py-20 bg-gradient-to-br from-white via-emerald-50 to-white">
+    <section className="py-20 bg-gradient-to-br from-[#004AAD]/5 via-emerald-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center"
@@ -44,7 +44,7 @@ const Conslusion = () => {
             <h3
               className="text-2xl md:text-3xl font-bold drop-shadow-md tracking-wide"
               style={{
-                color: "#5fcf80",
+                color: "#004AAD",
                 fontFamily: "'Raleway', sans-serif",
               }}
             >

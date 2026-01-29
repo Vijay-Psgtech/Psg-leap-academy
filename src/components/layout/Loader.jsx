@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 const Loader = () => {
   return (
-    <div className="fixed inset-0 flex flex-col items-center justify-center bg-gradient-to-b from-blue-50 to-white z-[9999]">
+    <div className="fixed inset-0 flex flex-col items-center justify-center bg-gradient-to-b from-[#004AAD]/10 to-white z-[9999]">
       {/*Logo pulse*/}
       <motion.img
         src="/logo.png"
@@ -16,17 +16,17 @@ const Loader = () => {
       {/*Animated dots*/}
       <div className="flex space-x-2">
         <motion.span
-          className="w-3 h-3 bg-blue-500 rounded-full"
+          className="w-3 h-3 bg-[#004AAD] rounded-full"
           animate={{ y: [0, -6, 0] }}
           transition={{ duration: 0.6, repeat: Infinity, delay: 0 }}
         />
         <motion.span
-          className="w-3 h-3 bg-blue-700 rounded-full"
+          className="w-3 h-3 bg-[#004AAD]/80 rounded-full"
           animate={{ y: [0, -6, 0] }}
           transition={{ duration: 0.6, repeat: Infinity, delay: 0.2 }}
         />
         <motion.span
-          className="w-3 h-3 bg-blue-900 rounded-full"
+          className="w-3 h-3 bg-[#004AAD]/60 rounded-full"
           animate={{ y: [0, -6, 0] }}
           transition={{ duration: 0.6, repeat: Infinity, delay: 0.4 }}
         />
@@ -34,7 +34,7 @@ const Loader = () => {
 
       {/*Loading Text*/}
       <motion.p
-        className="mt-4 text-blue-900 font-semibold tracking-wide text-lg"
+        className="mt-4 text-[#004AAD] font-semibold tracking-wide text-lg"
         animate={{ opacity: [0.5, 1, 0.5] }}
         transition={{ duration: 1.5, repeat: Infinity }}
       >

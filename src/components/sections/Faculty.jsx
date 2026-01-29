@@ -110,7 +110,7 @@ const Faculty = () => {
               className="rounded-2xl shadow-lg p-8 text-center card-hover"
               style={{
                 background: "linear-gradient(135deg, #f9f9f9, #f5f5f5)",
-                border: "1px solid rgba(95, 207, 128, 0.15)",
+                border: "1px solid rgba(0, 74, 173, 0.15)",
               }}
               variants={{
                 hidden: { opacity: 0, y: 40 },

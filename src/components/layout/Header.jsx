@@ -99,8 +99,8 @@ const Header = ({ scrollToSection }) => {
                     initial={{ opacity: 0, y: -6 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: idx * 0.05 }}
-                    style={{ color: isActive ? "#5fcf80" : "#272828" }}
-                    whileHover={{ color: "#5fcf80" }}
+                    style={{ color: isActive ? "#004AAD" : "#272828" }}
+                    whileHover={{ color: "#004AAD" }}
                     aria-current={isActive ? "page" : undefined}
                     aria-label={`Navigate to ${item.label} section`}
                   >
@@ -110,7 +110,7 @@ const Header = ({ scrollToSection }) => {
                       <motion.span
                         layoutId="nav-underline"
                         className="absolute left-0 -bottom-2 w-full h-0.5 rounded-full"
-                        style={{ background: "#5fcf80" }}
+                        style={{ background: "#004AAD" }}
                         transition={{
                           type: "spring",
                           stiffness: 500,
