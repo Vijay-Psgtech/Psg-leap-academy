@@ -14,6 +14,8 @@ import Marketing from "./sections/Marketing";
 import Finanicals from "./sections/Finanicals";
 import Success from "./sections/Success";
 import Conslusion from "./sections/Conslusion";
+import Footer from "./sections/Footer";
+import ScrollToTop from "./sections/ScrollToTop";
 
 const scrollToSection = (id) => {
   const element = document.getElementById(id);
@@ -64,6 +66,8 @@ export default function PSGLEAPAcademy() {
       <Finanicals />
       <Success />
       <Conslusion />
+      <Footer scrollToSection={scrollToSection} />
+      <ScrollToTop />
     </div>
   );
 }
