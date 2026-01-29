@@ -1,22 +1,37 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
-const AnimatedNumber = ({ value }) => {
-    const [count, setCount] = useState(0);
-    return (
-      <motion.span
-        className="text-5xl font-bold text-[#5fcf80]"
-        initial={{ count: 0 }}
-        animate={{ count: value }}
-        transition={{ duration: 2, ease: "easeOut" }}
-        onUpdate={(latest) => setCount(Math.floor(latest.count))}
-      >
-        {count}
-      </motion.span>
-    );
-  };
+const AnimatedNumber = ({ value, shouldAnimate }) => {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!shouldAnimate) return;
+
+    let currentCount = 0;
+    const increment = value / 120;
+    let animationFrame;
+
+    const animate = () => {
+      currentCount += increment;
+      if (currentCount < value) {
+        setCount(Math.floor(currentCount));
+        animationFrame = requestAnimationFrame(animate);
+      } else {
+        setCount(value);
+      }
+    };
+
+    animationFrame = requestAnimationFrame(animate);
+
+    return () => cancelAnimationFrame(animationFrame);
+  }, [value, shouldAnimate]);
+
+  return <span className="text-5xl font-bold text-[#5fcf80]">{count}</span>;
+};
 
 const Stats = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
   return (
     <section className="py-20 bg-gradient-to-br from-white via-emerald-50 to-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -24,6 +39,7 @@ const Stats = () => {
           className="grid grid-cols-2 md:grid-cols-4 gap-8"
           initial="hidden"
           whileInView="visible"
+          onViewportEnter={() => setIsVisible(true)}
           viewport={{ once: true, amount: 0.3 }}
           variants={{
             hidden: {},
@@ -55,7 +71,10 @@ const Stats = () => {
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.3 }}
                 >
-                  <AnimatedNumber value={stat.value} />
+                  <AnimatedNumber
+                    value={stat.value}
+                    shouldAnimate={isVisible}
+                  />
                   {stat.value === 250 && <span className="text-3xl">+</span>}
                 </motion.span>
                 <div
