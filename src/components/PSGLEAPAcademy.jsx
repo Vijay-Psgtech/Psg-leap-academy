@@ -3,6 +3,7 @@ import React, { lazy, Suspense } from "react";
 import Header from "./sections/Header";
 import Footer from "./sections/Footer";
 import ScrollToTop from "./sections/ScrollToTop";
+import Loader from "./sections/Loader";
 
 const Hero = lazy(() => import("./sections/Hero"));
 const About = lazy(() => import("./sections/About"));
@@ -52,7 +53,7 @@ export default function PSGLEAPAcademy() {
       >
         Skip to main content
       </a>
-      <Suspense fallback={<div className="text-center mt-20">Loading...</div>}>
+      <Suspense fallback={<Loader />}>
         <Header scrollToSection={scrollToSection} />
         <Hero scrollToSection={scrollToSection} />
         <About />
