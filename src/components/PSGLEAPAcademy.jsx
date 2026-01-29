@@ -8,6 +8,8 @@ import Target from "./sections/Target";
 import Programs from "./sections/Programs";
 import Facilities from "./sections/Facilities";
 import Technology from "./sections/Technology";
+import Faculty from "./sections/Faculty";
+import Pricing from "./sections/Pricing";
 
 const scrollToSection = (id) => {
   const element = document.getElementById(id);
@@ -52,6 +54,8 @@ export default function PSGLEAPAcademy() {
       <Programs />
       <Facilities />
       <Technology />
+      <Faculty />
+      <Pricing />
     </div>
   );
 }
