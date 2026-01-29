@@ -56,7 +56,7 @@ const Hero = ({ scrollToSection }) => {
               className="block mt-4 bg-clip-text text-transparent"
               style={{
                 backgroundImage:
-                  "linear-gradient(90deg, #10b981, #34d399, #a7f3d0)",
+                  "linear-gradient(90deg, #004AAD, #10b981, #34d399)",
                 letterSpacing: "3px",
               }}
               initial={{ opacity: 0, scale: 0.95 }}
@@ -83,17 +83,17 @@ const Hero = ({ scrollToSection }) => {
           {/* CTA */}
           <motion.button
             onClick={() => scrollToSection("programs")}
-            className="px-10 py-4 rounded-full font-semibold text-lg bg-white text-emerald-600 relative overflow-hidden group icon-button"
+            className="px-10 py-4 rounded-full font-semibold text-lg bg-white text-[#004AAD] relative overflow-hidden group icon-button"
             whileHover={{
               scale: 1.08,
-              boxShadow: "0 20px 50px rgba(16,185,129,0.4)",
+              boxShadow: "0 20px 50px rgba(0, 74, 173, 0.4)",
             }}
             whileTap={{ scale: 0.95 }}
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
             aria-label="Explore coaching programs offered"
           >
             <motion.span
-              className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-emerald-600 -z-10"
+              className="absolute inset-0 bg-gradient-to-r from-[#004AAD] to-[#0066cc] -z-10"
               initial={{ x: "-100%" }}
               whileHover={{ x: 0 }}
               transition={{ duration: 0.3 }}

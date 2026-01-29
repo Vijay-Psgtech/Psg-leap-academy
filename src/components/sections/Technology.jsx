@@ -27,7 +27,7 @@ const Technology = () => {
   return (
     <section
       id="technology"
-      className="py-20 bg-gradient-to-br from-white via-emerald-50 to-white overflow-hidden"
+      className="py-20 bg-gradient-to-br from-[#004AAD]/5 via-emerald-50 to-white overflow-hidden"
       role="region"
       aria-label="Technology and digital tools"
     >
@@ -72,7 +72,7 @@ const Technology = () => {
               className="rounded-2xl shadow-lg p-10 text-center card-hover"
               style={{
                 background: "linear-gradient(135deg, #ffffff, #f8fbf9)",
-                border: "1px solid rgba(95, 207, 128, 0.2)",
+                border: "1px solid rgba(0, 74, 173, 0.15)",
               }}
               variants={{
                 hidden: { opacity: 0, y: 40 },

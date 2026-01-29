@@ -90,7 +90,7 @@ const Facilities = () => {
               className="text-center p-8 rounded-2xl shadow-lg card-hover"
               style={{
                 background: "linear-gradient(135deg, #f9f9f9, #f5f5f5)",
-                border: "1px solid rgba(95, 207, 128, 0.15)",
+                border: "1px solid rgba(0, 74, 173, 0.15)",
               }}
               variants={{
                 hidden: { opacity: 0, y: 40 },
