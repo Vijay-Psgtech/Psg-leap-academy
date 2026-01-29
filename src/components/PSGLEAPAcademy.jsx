@@ -3,9 +3,24 @@ import React from "react";
 import Header from "./sections/Header";
 import Hero from "./sections/Hero";
 import About from "./sections/About";
+import Stats from "./sections/Stats";
+import Target from "./sections/Target";
+import Programs from "./sections/Programs";
 
 const scrollToSection = (id) => {
-  document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  const element = document.getElementById(id);
+  if (element) {
+    const offset = 80;
+    const bodyRect = document.body.getBoundingClientRect().top;
+    const elementRect = element.getBoundingClientRect().top;
+    const elementPosition = elementRect - bodyRect;
+    const offsetPosition = elementPosition - offset;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: "smooth",
+    });
+  }
 };
 
 export default function PSGLEAPAcademy() {
@@ -27,10 +42,12 @@ export default function PSGLEAPAcademy() {
         Skip to main content
       </a>
       <Header scrollToSection={scrollToSection} />
-      <main id="main-content" tabIndex="-1">
-        <Hero scrollToSection={scrollToSection} />
-        <About />
-      </main>
+
+      <Hero scrollToSection={scrollToSection} />
+      <About />
+      <Stats />
+      <Target />
+      <Programs />
     </div>
   );
 }
