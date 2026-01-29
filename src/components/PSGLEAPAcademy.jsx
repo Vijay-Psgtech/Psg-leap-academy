@@ -1,9 +1,9 @@
 import React, { lazy, Suspense } from "react";
 
-import Header from "./sections/Header";
-import Footer from "./sections/Footer";
-import ScrollToTop from "./sections/ScrollToTop";
-import Loader from "./sections/Loader";
+import Header from "./layout/Header";
+import Footer from "./layout/Footer";
+import ScrollToTop from "./layout/ScrollToTop";
+import Loader from "./layout/Loader";
 
 const Hero = lazy(() => import("./sections/Hero"));
 const About = lazy(() => import("./sections/About"));
