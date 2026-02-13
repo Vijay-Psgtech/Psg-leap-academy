@@ -9,6 +9,6 @@ export default defineConfig({
     outDir: "dist",
   },
   server: {
-    allowedHosts: ["localhost", "leapacademy@psginstitutions.in"],
+    allowedHosts: ["localhost", "leapacademy.psginstitutions.in"],
   },
 });
