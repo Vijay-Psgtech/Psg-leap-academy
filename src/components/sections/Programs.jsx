@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import courseImg from "../../assets/img/course-1.jpg";
 
 const programsData = [
   {
@@ -80,7 +81,7 @@ const Programs = () => {
             whileHover={{ scale: 1.02 }}
           >
             <motion.img
-              src="src/assets/img/course-1.jpg"
+              src={courseImg}
               alt="Programs"
               className="w-full h-full object-cover"
               initial={{ scale: 1.05 }}

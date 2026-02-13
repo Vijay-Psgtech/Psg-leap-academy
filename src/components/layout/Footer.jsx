@@ -48,7 +48,11 @@ const Footer = ({ scrollToSection}) => {
             </p>
 
             <p className="text-sm" style={{ color: "rgba(255,255,255,0.7)" }}>
-              <strong>Email:</strong> info@psgleap.edu.in
+              <strong>Email:</strong>  admissions@psgps.edu.in
+            </p>
+
+            <p className="text-sm mt-2" style={{ color: "rgba(255,255,255,0.7)" }}>
+              <strong>Ph:</strong> 0422-4344522
             </p>
           </motion.div>
 
