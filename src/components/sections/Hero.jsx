@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import heroImg from "../../assets/img/hero-bg.jpg"
+import heroImg from "../../assets/img/banner.png"
 
 const Hero = ({ scrollToSection }) => {
   return (
@@ -21,7 +21,7 @@ const Hero = ({ scrollToSection }) => {
       />
 
       {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-linear-to-br from-white-500/75 via-white-700/70 to-slate-900/85"></div>
+      <div className="absolute inset-0 bg-linear-to-br from-white-500/75 via-slate-700/70 to-slate-900/85"></div>
 
       {/* Content */}
       <motion.div
