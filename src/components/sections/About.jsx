@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import aboutImg from "../../assets/img/about.jpg";
 
 const About = () => {
   return (
@@ -18,7 +19,7 @@ const About = () => {
             transition={{ duration: 0.4 }}
           >
             <motion.img
-              src="src/assets/img/about.jpg"
+              src={aboutImg}
               alt="About PSG LEAP Academy"
               className="w-full h-full object-cover"
               initial={{ scale: 1.05 }}

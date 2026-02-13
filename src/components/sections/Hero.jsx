@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import heroImg from "../../assets/img/hero-bg.jpg"
 
 const Hero = ({ scrollToSection }) => {
   return (
@@ -11,7 +12,7 @@ const Hero = ({ scrollToSection }) => {
     >
       {/* Background Image */}
       <motion.img
-        src="src/assets/img/hero-bg.jpg"
+        src={heroImg}
         alt="Hero Background"
         className="absolute inset-0 w-full h-full object-cover"
         initial={{ scale: 1.15 }}
