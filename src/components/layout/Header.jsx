@@ -10,9 +10,9 @@ const navItems = [
   { label: "Facilities", id: "facilities" },
   { label: "Technology", id: "technology" },
   { label: "Faculty", id: "faculty" },
-  { label: "Pricing", id: "pricing" },
+  // { label: "Pricing", id: "pricing" },
   { label: "Outreach", id: "outreach" },
-  { label: "Financials", id: "financials" },
+  // { label: "Financials", id: "financials" },
   { label: "Success", id: "success" },
 ];
 
@@ -86,7 +86,7 @@ const Header = ({ scrollToSection }) => {
 
             {/* DESKTOP NAV */}
             <nav
-              className="hidden lg:flex items-center space-x-8"
+              className="hidden lg:flex items-center space-x-12"
               aria-label="Main navigation"
             >
               {navItems.map((item, idx) => {

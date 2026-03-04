@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import courseImg from "../../assets/img/course-1.jpg";
+import courseImg from "../../assets/img/program-offered.png";
 
 const programsData = [
   {
