@@ -71,7 +71,7 @@ const Footer = ({ scrollToSection}) => {
             </h4>
 
             <ul className="space-y-3 text-sm">
-              {["Home", "About", "Programs", "Pricing", "Financials"].map(
+              {["Home", "About", "Programs", "Facilities", "Faculty"].map(
                 (item, idx) => (
                   <motion.li
                     key={item}
