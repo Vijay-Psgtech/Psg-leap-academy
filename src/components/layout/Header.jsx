@@ -10,9 +10,9 @@ const navItems = [
   { label: "Facilities", id: "facilities" },
   { label: "Technology", id: "technology" },
   { label: "Faculty", id: "faculty" },
-  // { label: "Pricing", id: "pricing" },
+  
   { label: "Outreach", id: "outreach" },
-  // { label: "Financials", id: "financials" },
+  
   { label: "Success", id: "success" },
 ];
 

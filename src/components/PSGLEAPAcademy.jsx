@@ -13,9 +13,9 @@ const Programs = lazy(() => import("./sections/Programs"));
 const Facilities = lazy(() => import("./sections/Facilities"));
 const Technology = lazy(() => import("./sections/Technology"));
 const Faculty = lazy(() => import("./sections/Faculty"));
-const Pricing = lazy(() => import("./sections/Pricing"));
+
 const Marketing = lazy(() => import("./sections/Marketing"));
-const Finanicals = lazy(() => import("./sections/Finanicals"));
+
 const Success = lazy(() => import("./sections/Success"));
 const Conslusion = lazy(() => import("./sections/Conslusion"));
 
@@ -53,8 +53,10 @@ export default function PSGLEAPAcademy() {
       >
         Skip to main content
       </a>
+
       <Suspense fallback={<Loader />}>
         <Header scrollToSection={scrollToSection} />
+
         <Hero scrollToSection={scrollToSection} />
         <About />
         <Stats />
@@ -63,11 +65,12 @@ export default function PSGLEAPAcademy() {
         <Facilities />
         <Technology />
         <Faculty />
-        <Pricing />
+
         <Marketing />
-        <Finanicals />
+
         <Success />
         <Conslusion />
+
         <Footer scrollToSection={scrollToSection} />
         <ScrollToTop />
       </Suspense>
