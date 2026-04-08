@@ -41,15 +41,17 @@ const Footer = ({ scrollToSection}) => {
             </div>
 
             <p
-              className="mb-4 text-sm leading-relaxed"
+              className="mb-2 text-sm leading-relaxed"
               style={{ color: "rgba(255,255,255,0.7)" }}
             >
               A Unit of PSG Institutions, Coimbatore, Tamil Nadu
             </p>
 
-            <p className="text-sm" style={{ color: "rgba(255,255,255,0.7)" }}>
-              <strong>Email:</strong>  admissions@psgps.edu.in
-            </p>
+            <a href="mailto:leapacademy@psginstitutions.in">
+              <p className="text-sm" style={{ color: "rgba(255,255,255,0.7)" }}>
+                <strong>Email:</strong>   leapacademy@psginstitutions.in
+              </p>
+            </a>
 
             <p className="text-sm mt-2" style={{ color: "rgba(255,255,255,0.7)" }}>
               <strong>Ph:</strong> 0422-4344522
